@@ -1,0 +1,28 @@
+header{
+    position:fixed;
+    top:0;left:0;right:0;
+    background: #fff;
+    padding: 1rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 2px 2px 4px #888888;
+
+}
+
+header .logo{
+    font-size: 3rem;
+    color: #333;
+    font-weight:  bolder;
+}
+header .logo span{
+    color: var(--red);
+
+}
+header .navbar a{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
