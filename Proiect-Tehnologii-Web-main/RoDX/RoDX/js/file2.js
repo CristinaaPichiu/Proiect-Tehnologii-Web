@@ -1,44 +1,47 @@
-$(document).ready(function(){
-    var zindex = 10;
-    
-    $("div.card").click(function(e){
-      e.preventDefault();
-  
-      var isShowing = false;
-  
-      if ($(this).hasClass("show")) {
-        isShowing = true
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll("div.card");
+  let zindex = 10;
+
+  cards.forEach(function(card) {
+    card.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      let isShowing = false;
+
+      if (this.classList.contains("show")) {
+        isShowing = true;
       }
-  
-      if ($("div.cards").hasClass("showing")) {
+
+      if (document.querySelector("div.cards").classList.contains("showing")) {
         // a card is already in view
-        $("div.card.show")
-          .removeClass("show");
-  
+        document.querySelector("div.card.show").classList.remove("show");
+
         if (isShowing) {
           // this card was showing - reset the grid
-          $("div.cards")
-            .removeClass("showing");
+          document.querySelector("div.cards").classList.remove("showing");
         } else {
           // this card isn't showing - get in with it
-          $(this)
-            .css({zIndex: zindex})
-            .addClass("show");
-  
+          this.style.zIndex = zindex;
+          this.classList.add("show");
         }
-  
+
         zindex++;
-  
       } else {
         // no cards in view
-        $("div.cards")
-          .addClass("showing");
-        $(this)
-          .css({zIndex:zindex})
-          .addClass("show");
-  
+        document.querySelector("div.cards").classList.add("showing");
+        this.style.zIndex = zindex;
+        this.classList.add("show");
+
         zindex++;
       }
-      
     });
   });
+
+  const readMoreBtns = document.querySelectorAll(".btn2");
+  readMoreBtns.forEach(function(btn) {
+    btn.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = this.href;
+    });
+  });
+});
