@@ -1,19 +1,6 @@
 /* font stuff*/
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
 
-
-/* colour stuff*/
-/*@white: #ffffff;
-@lightBG: #dce1df;
-@salmon: #ff6666;
-
-@teal: #0096a0;
-@tealMid: #0ebac7;
-@tealContrast: #33ffff;
-@tealShade:	#007c85;
-
-@darkGrey: #4f585e;*/
-
 body {
   background: #dce1df;
   color: #4f585e;
@@ -74,7 +61,7 @@ a.btn2 {
 }
 
 div.cards {
-  margin: 100px auto;
+  margin: 110px auto;
   max-width: 2000px;
   text-align: center;
 }
@@ -82,9 +69,9 @@ div.cards {
 div.card {
   background: #ffffff;
   display: inline-block;
-  margin: 50px;
+  margin: 30px;
   max-width: 500px;
-  perspective: 1000;
+  perspective: 2000;
   position: relative;
   text-align: left;
   transition: all 0.3s 0s ease-in;
