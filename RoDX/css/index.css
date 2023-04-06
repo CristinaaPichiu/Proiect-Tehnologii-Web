@@ -143,7 +143,7 @@ span.text {
     height: 26vmin;
     width: 26vmin;
     font-size: 12px;
-    margin: auto;
+
   }
 }
 @media screen and (max-width: 768px) {
