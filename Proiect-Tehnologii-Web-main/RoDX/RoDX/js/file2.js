@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const cards = document.querySelectorAll("div.card");
   let zindex = 10;
 
-  cards.forEach(function(card) {
-    card.addEventListener("click", function(event) {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", function(event) {
       event.preventDefault();
 
       let isShowing = false;
@@ -35,13 +35,14 @@ document.addEventListener("DOMContentLoaded", function() {
         zindex++;
       }
     });
-  });
+  }
 
   const readMoreBtns = document.querySelectorAll(".btn2");
-  readMoreBtns.forEach(function(btn) {
-    btn.addEventListener("click", function(event) {
+
+  for (let i = 0; i < readMoreBtns.length; i++) {
+    readMoreBtns[i].addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = this.href;
     });
-  });
+  }
 });
