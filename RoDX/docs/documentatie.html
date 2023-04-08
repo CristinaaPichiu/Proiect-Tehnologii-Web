@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="documentation.css">
+    <title>Documentation</title>
+</head>
+ 
+<body>
+    <article>
+        <h1>Software Requirements Specifications</h1>
+        <section>
+            <h2 id="1"><a href="#1">Introducere</a></h2>
+ 
+            <h3> 1.1 Motivație </h3>
+            <p>Crearea unui instrument Web de vizualizare flexibilă a datelor cu privire la
+               consumul de droguri în ultimii 3 ani, în  corelație cu infracțiunile și
+               confiscările efectuate, plus urgențele medicale și campaniile de prevenire a consumului de stupefiante.
+               Acest instrument poate fi utilizat de oricine este interesat de astfel de informații.</p>
+ 
+            <h3> 1.2 Scopul produsului </h3>
+ 
+            <p> Scopul acestui produs este facilitarea vizualizării informațiilor cu privire la consumul de droguri.
+                Instrumentul va fi creat pe baza unui API REST/GraphQL propriu. Statisticile și vizualizările vor fi
+                generate în minim 3 maniere. Acestea vor putea fi exportate în formatele PNG și SVG. Căutările
+                 multi-criteriale și rapoartele aferente generate vor fi expuse ca documente HTML și în format CSV.
+        </p>
+ 
+            <h3> 1.3 Referinte </h3> 
+ 
+            <ul>
+              
+                <li>Cerinte proiect: https://fii-tw.notion.site/Lista-proiecte-72c08c2e4d974017bdc43fb6a2a7d5b1#902162edc93b46c69cdb2540302d0cae</li>
+                <li>Font awesome: https://fontawesome.com/</li>
+                <li>Chartist: https://gionkunz.github.io/chartist-js/getting-started.html</li>
+                <li>Potrace: https://www.npmjs.com/package/potrace</li>
+                <li>WebP-Converter: https://www.npmjs.com/package/webp-converter</li>
+
+            </ul>
+ 
+        </section>
+        <section>
+            <h2 id="2"><a href="#2"> Descriere generală </a></h2>
+            <h3> 2.1 Perspectiva Produsului </h3>
+ 
+            <p>Similar cu alte site-uri de vizualizare de date, Romanian Drugs Explorer facilitează vizualizarea
+                diverselor informații despre consumul de droguri în România .</p>
+ 
+            <h3> 2.2 Funcțiile Produsului </h3>
+ 
+            <p>
+            <ul>
+                <li>Generare de statistici cu diverse forme de vizualizare</li>
+                <ol>
+                    <li>Bar chart</li>
+                    <li>Line chart</li>
+                    <li>Radar chart</li>
+                    <li>Polar area chart</li>
+                    <li>Doughnut chart</li>
+                </ol>
+                <li>Generare de de date statistice privind consumul de droguri din România.</li>
+                <ol>
+                    <li>După regiune</li>
+                    <li>După vârstă</li>
+                    <li>După tipul de drog</li>
+                    <li>După tipul de infracțiune</li>
+                    <li>După sexul persoanei</li>
+                </ol>
+                <li>Exportarea informațiilor</li>
+                <ol>
+                    <li>Format CSV</li>
+                    <li>Format PNG</li>
+                    <li>Format SVG</li>
+                </ol>
+                <li>Căutare multi-criterială de cazuri raportate</li>
+            </ul>
+            </p>
+ 
+            <h3> 2.3 Tipuri de utilizatori </h3>
+ 
+            <ul>
+                <li>Utilizator obișnuit</li>
+                <ol>
+                    <li>Va putea vizualiza și filtra datele în diverse moduri</li>
+                    <li>Va putea exporta informațiile de pe site în diverse formate</li>
+                </ol>
+                <li>Administrator</li>
+                <ol>
+                    <li>Va putea vizualiza și filtra datele în diverse moduri</li>
+                    <li>Va putea exporta informațiile de pe site în diverse formate</li>
+                    <li>Va trebui să se autentifice pentru a realiza diverse operații ce necesită privilegii ridicate precum adăugarea de noi date în baza de date sau modificarea celor existente
+                    </li>
+                </ol>
+            </ul>
+ 
+            <h3> 2.4 Mediul de utilizare </h3>
+ 
+            <p> Instrumentul este o aplicație web care va fi accesată utilizând diverse browsere.</p>
+ 
+            <h3> 2.5 Constrângeri de Design și Implementare </h3>
+ 
+            <ul>
+                <li>Instrumentul este o aplicație Web</li>
+                <li>Utilizarea unui API REST/GraphQL propriu</li>
+                <li>Utilizarea de HTML5, CSS3</li>
+                <li>Utilizarea unei baze de date ca sursă de date</li>
+                <li>Generarea de diverse statistici și vizualizări</li>
+                <li>Posibilitatea de a exporta datele in diverse formate: CSV, PNG și SVG</li>
+            </ul>
+ 
+            
+ 
+        
+ 
+        </section>
+        <section>
+            <h2 id="3"><a href="#3">Cerințele Interfeței Externe</a></h2>
+ 
+            <h3> 3.1 Interfață Utilizator </h3>
+ 
+            <p> Un utilizator al aplicației poate să vizualizeze datele sub formă de statistici pe chart-uri. Utilizatorul va
+                putea accesa mai multe filtre pentru a selecta datele iar acestea vor fi afisate într-un mod interactiv
+                pe grfaice și chart-uri.</p>
+            <p>Dashboard admin:
+               
+                <li>În pagina de manage, data administratorul poate să actualizeze/insereze/șteargă date din baza de
+                    date.</li>
+                <li>Pe pagina de profil acesta poate vizualiza date din profilul acestuia cum ar fi numele, locația,
+                    numărul de telefon, etc. sau chiar numărul de modificari în baza de date.</li>
+            </p>
+            <h3> 3.2 Interfata Software </h3>
+ 
+            <ul>
+                <li>Necesită un browser instalat pe calculator.</li>
+                <li>Comunicarea cu baza de date pentru afișarea informațiilor cerute de utilizatori obișnuiți sau
+                    administratori.</li>
+                <li>Utilizarea librariei Potrace pentru convertirea in formatul SVG.</li>
+                <li>Utilizarea librariei Font Awesome pentru diverse icon-uri.</li>
+                <li>Utilizarea librariei Ionic pentru diverse icon-uri.</li>
+            </ul>
+ 
+            <h3> 3.3 Interfața de Comunicare </h3>
+ 
+            <p>
+                Necesită conexiune la internet pentru utilizare.
+                Pentru crearea conturilor de administratori va fi necesară completarea unui formular.
+                În completare, este necesară adresa de mail care va fi asociată contului, un nume de utilizator și o
+                parolă. De asemenea, parola va fi criptată folosind un algoritm de criptare. 
+            </p>
+        </section>
+        <section>
+            <h2 id="4"><a href="#4">Functionalități de sistem</a></h2>
+ 
+           
+            <h3> 4.1 Generare de statistici</h3>
+ 
+            <h4> 4.1.1 Descriere </h4>
+ 
+            <p>Statisticile se vor genera în mai multe maniere:</p>
+            <ol>
+                <li>Bar chart</li>
+                <li>Line chart</li>
+                <li>Radar chart</li>
+                <li>Polar area chart</li>
+                <li>Doughnut chart</li>
+            </ol>
+ 
+            <h4> 4.1.2 Mod de utilizare </h4>
+ 
+            <p> Deschiderea paginii de statistici aflată în bara de navigație sub numele de Statistics. Selectarea anumitor
+                criterii în funcție de care statisticile se vor realiza. Apăsarea butonului de submit pentru aplicarea
+                filtrelor.</p>
+ 
+            <h4> 4.1.3 Cerințe funcționale </h4>
+ 
+            <p>În funcție de modul de vizualizare anumite combinații de filtre nu pot fi reprezentate.</p>
+ 
+            
+ 
+            <h3> 4.2 Exportare datelor </h3>
+ 
+            <h4> 4.2.1 Descriere </h4>
+            <p> Datele pot fi exportate în multiple formate:</p>
+            <ol>
+                <li>Format CSV</li>
+                <li>Format PNG</li>
+                <li>Format SVG</li>
+            </ol>
+ 
+            <h4> 4.2.2 Mod de utilizare </h4>
+ 
+            <p> Deshiderea paginii de filtre. Aplicarea anumitor filtre. Apăsarea butonului de submit
+                pentru aplicarea filtrelor. Apăsarea butonului de download pentru formatul în care se vor exporta
+                datele.</p>
+ 
+            <h4> 4.2.3 Cerințe functionale </h4>
+ 
+            <h3> 4.3 Căutare multi-criterială </h3>
+ 
+            <h4> 4.3.1 Descriere </h4>
+ 
+            <p> Căutarea diverselor date după mai multe criterii.</p>
+ 
+            <h4> 4.3.2 Mod de utilizare </h4>
+ 
+            <p> Deschiderea paginii de statistici aflată în bara de navigație sub numele de Statistics. Selectarea anumitor
+                criterii în funcție de care datele afișate se vor modifica. Apăsarea butonului de submit pentru
+                aplicarea filtrelor.</p>
+ 
+            <h4> 4.3.3 Cerințe funcționale </h4>
+ 
+            <p>În funcție de modul de vizualizare anumite combinații de filtre nu pot fi reprezentate.</p>
+ 
+            <h3> 4.4 Autentificarea ca și administrator </h3>
+ 
+            <h4> 4.4.1 Descriere </h4>
+ 
+            <p> Autentificare </p>
+ 
+            <h4> 4.4.2 Mod de utilizare </h4>
+ 
+            <p> Deschiderea paginii de autentificare aflată în bara de navigație sub numele de Log In. Introducerea
+                numelui de utilizator și a parolei.
+                Apăsarea butonului de trimite.</p>
+ 
+            <h4> 4.4.3 Cerințe funcționale </h4>
+ 
+            <p>Introducerea unei combinații corecte de nume de utilizator și parolă.</p>
+ 
+            <h3> 4.5 Creare cont administrator </h3>
+ 
+            <h4> 4.5.1 Descriere </h4>
+ 
+            <p> Crearea unui cont de administrator.</p>
+ 
+            <h4> 4.5.2 Mod de utilizare </h4>
+ 
+            <p> Deschiderea paginii de autentificare aflată în bara de navigație sub numele de Log In. Apăsarea
+                butonului de înregistrare.
+                Completarea câmpurilor nume, email și parola. Apăsarea butonului de înregistrare.
+            </p>
+ 
+            <h4> 4.5.3 Cerințe funcționale </h4>
+ 
+            <p>Introducerea unei combinații corecte de nume de utilizator, parolă și email. Reintroducerea corectă a
+                parolei.</p>
+ 
+            <h3> 4.6 Modificarea de date </h3>
+ 
+            <h4> 4.6.1 Descriere </h4>
+ 
+            <p> Modificarea datelor din baza de date.</p>
+ 
+            <h4> 4.6.2 Mod de utilizare </h4>
+ 
+            <p> Autentificarea cu contul de administrator. Deschiderea paginii Manage Data aflată în bara de navigație
+                din
+                stânga. Utilizarea butoanelor update/delete pentru modificarea datelor. Completarea câmpurilor cu
+                datele corecte.
+            </p>
+ 
+            <h4> 4.6.3 Cerințe funcționale </h4>
+ 
+            <p>Introducerea datelor corecte.</p>
+ 
+            <h3> 4.7 Modificarea de date </h3>
+ 
+            <h4> 4.7.1 Descriere </h4>
+ 
+            <p> Vizualizare profilului.</p>
+ 
+            <h4> 4.7.2 Mod de utilizare </h4>
+ 
+            <p> Autentificarea cu contul de administrator. Deschiderea paginii profile aflată în bara de navigație din
+                stânga.
+            </p>
+ 
+            <h4> 4.7.3 Cerințe funcționale </h4>
+ 
+        </section>
+        <section>
+ 
+            <h2 id="5"><a href="#5">Cerințe nefuncționale</a></h2>
+ 
+            <h3> 5.1 Cerințe de Securitate </h3>
+            <ul>
+                <li>Prevenirea de atacuri de tip SQL injection(RFC 7481).</li>
+                <li>Prevenirea atacurilor de tip cookie hijacking.</li>
+            </ul>
+            <p>Pentru autentificarea unui administrator va fi nevoie de un utilizator și o parolă.</p>
+ 
+            <h3> 5.2 Atributele Calității Software </h3>
+ 
+            <p>
+                Aplicația pune la dispoziție utilizătorilor diverse funcționalități cu diferite grade de complexitate în
+                utilizare. Prin interfața oferită aplicația poate fi utilizată cu ușurința de către utilizatori obișnuiți și
+                administratori.
+                Utilizatorii obișnuiți trebuie să aibă cunoștințe minime de interepretare a graficelor și
+                statisticilor puse la dispoziție.
+            </p>
+ 
+            
+ 
+            <ul>
+                <li>Asigurarea consistenței datelor din baza de date.</li>
+                <li>Asigurarea consistenței datelor afișate/exportate în conformitate cu datele din baza de date.</li>
+            </ul>
+ 
+            <h3> Anexa A: Glosar </h3>
+ 
+            <ul>
+                <li>CSV: Comma Separated Values</li>
+                <li>HTML: Hypertext Markup Language</li>
+                <li>CSS: Cascading Style Sheets</li>
+                <li>SVG: Scalable Vector Graphics</li>
+                <li>API: Application Programming Interface</li>
+                <li>SQL: Structured Query Language</li>
+                <li>REST: Representational state transfer</li>
+                <li>JS: JavaScript</li>
+                <li>RFC: Request for Comments</li>
+                <li>HTTPS: Hypertext Transfer Protocol Secure</li>
+            </ul>
+ 
+           
+        </section>
+    </article>
+</body>
