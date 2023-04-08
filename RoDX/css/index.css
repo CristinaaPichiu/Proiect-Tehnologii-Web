@@ -101,6 +101,7 @@
   display: flex;
   justify-content: space-around;
   gap: 10px;
+  margin-top: calc(40px + 1rem);
 }
 .container {
   width: 28vmin;
@@ -138,6 +139,7 @@ span.text {
 @media screen and (max-width: 1024px) {
   .wrapper {
     width: 85vw;
+    top: calc(580px + 1rem); 
   }
   .container {
     height: 26vmin;
@@ -151,6 +153,7 @@ span.text {
     width: 90vw;
     flex-wrap: wrap;
     gap: 30px;
+    top: calc(600px + 1rem); 
   }
   .container {
     width: calc(50% - 40px);
@@ -161,6 +164,7 @@ span.text {
 @media screen and (max-width: 480px) {
   .wrapper {
     gap: 15px;
+    top: calc(580px + 1rem); 
   }
   .container {
     width: 100%;
