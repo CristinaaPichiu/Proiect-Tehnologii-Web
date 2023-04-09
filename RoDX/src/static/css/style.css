@@ -158,16 +158,14 @@ header .search{
     opacity:0;
     visibility: hidden;
     transition: 0.5s;
-    scale:0;
-
-
+    transform: scale(0);
 }
 
 .closeBtn.active{
     opacity: 1;
     visibility: visible;
     transition: 0.5s;
-    scale:1;
+    transform: scale(1);
 }
 
 .menuToggle{
@@ -233,7 +231,6 @@ header .search{
         flex-direction: column;
         background: #fff;
         width:100%;
-        height: calc(100vh-80px);
         padding:40px;
         border-top:1px solid rgba(0,0,0,0.05);
     }
