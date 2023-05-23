@@ -1,9 +1,8 @@
-svg {
+.container {
   margin: 0 auto;
   text-align: center;
   width: 100%;
   padding-top: 200px;
-
 }
 
 polyline {
@@ -79,7 +78,7 @@ html {
   display: none;
   }
   
-  .button {
+  .buttonFiltru {
   background: #1CAC78;
   padding: 1em 2em;
   text-transform: uppercase;
@@ -98,13 +97,13 @@ html {
   
   }
   @media only screen and (max-width: 600px) {
-    .button {
+    .buttonFiltru {
       max-width: 100%;
       padding: 1em;
     }
   }
   
-  .button::after {
+  .buttonFiltru::after {
   font-family: sans-serif;
   content: "v";
   padding-left: 0.5em;
@@ -112,7 +111,7 @@ html {
 
   }
   
-  .button--highlight::after {
+  .buttonFiltru--highlight::after {
   content: "o";
   }
 
