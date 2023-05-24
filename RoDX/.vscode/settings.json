@@ -1,0 +1,14 @@
+{
+    "php.validate.executablePath": "C:\\php-8.2.6\\php.exe",
+    "fiveServer.browser": [
+        
+        "C:\\Users\\bianc\\AppData\\Local\\Programs\\Opera\\opera.exe"
+    ],
+    "fiveServer.php.executable": "C:\\xampp\\php\\php.exe",
+    "fiveServer.php.ini": "C:\\php-8.2.6\\php.ini",
+    "fiveServer.injectBody": true,
+    "fiveServer.highlight": true,
+    "fiveServer.ignore": [
+
+    ]
+}
