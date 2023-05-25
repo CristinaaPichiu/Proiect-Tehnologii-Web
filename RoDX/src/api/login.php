@@ -1,35 +1,43 @@
 <?php
-   $authenticated = false;
-   if(isset($_POST['uname']) && $_POST['psw']=="Username")
-   {
-       $username = $_POST['uname'];
-       $pwd = $_POST['psw'];
+    session_start();
+    include "DataBaseConn.php";
 
-       $host = "dumbo.db.elephantsql.com";
-       $user = "ifyxdeeh";
-       $pass = "2ztEW94Zan3R-EGWlW90JiR0WZsDlndx";
-       $db = "ifyxdeeh";
+    if(isset($_POST['uname']) && isset($_POST['psw']))
+    {
+        function validate($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return data;
+        }
 
-       // Open a PostgreSQL connection
-       $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-           or die ("Could not connect to server\n");
+        $username = validate($_POST['uname']);
+        $pwd = validate($_POST['psw']);
 
-       // Query to check if user exists with the given username and password
-       $query = "SELECT * FROM users WHERE username = '$username' AND password = '$pwd'";
-       $result = pg_query($con, $query);
+        if(empty($username))
+        {
+            echo "Username is required";
+        }
+        if(empty($pwd))
+        {
+            echo "Password is required";
+        }
 
-       if (pg_num_rows($result) > 0) {
-           // User authentication successful
-           $authenticated = true;
-       }
+        $sql = "SELECT * FROM users WHERE username='$uname' AND password='$pwd'";
+        echo "ajunge aici";
 
-       if($authenticated)
-       {
-           echo "Authentication successful";
-       }
-       else
-       {
-           echo "Invalid credentials";
-       }
-   }
+        $result = mysqli_query($conn,$sql);
+
+        if(myssqli_num_rows($result) === 1){
+            $row = mysqli_fetch_assoc($result);
+            if($row['username'] === $username && $row['password']===$pwd){
+                echo "Logged in";
+                exit();
+            }
+            else {
+                echo "Credentialele au fost gresite";
+            }
+        }
+    }
 ?>
+
