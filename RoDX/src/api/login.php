@@ -1,43 +1,40 @@
 <?php
-    session_start();
-    include "DataBaseConn.php";
+// Conectare la baza de date
+$host = "hansken.db.elephantsql.com";
+$port = "5432";
+$dbname = "cyjvryeg";
+$user = "cyjvryeg";
+$password = "J5vORyk7ysgEBeHVnEJhD9Hnywf6kfm6";
 
-    if(isset($_POST['uname']) && isset($_POST['psw']))
-    {
-        function validate($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return data;
-        }
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
-        $username = validate($_POST['uname']);
-        $pwd = validate($_POST['psw']);
+// Verificare conexiune la baza de date
+if (!$conn) {
+    die("Conexiunea la baza de date a eșuat");
+}
 
-        if(empty($username))
-        {
-            echo "Username is required";
-        }
-        if(empty($pwd))
-        {
-            echo "Password is required";
-        }
+// Verificare dacă a fost trimis formularul de autentificare
+if (isset($_POST['login'])) {
+    // Preiați valorile introduse în formular
+    $username = $_POST['uname'];
+    $password = $_POST['psw'];
 
-        $sql = "SELECT * FROM users WHERE username='$uname' AND password='$pwd'";
-        echo "ajunge aici";
+    // Realizați aici verificările suplimentare ale datelor, cum ar fi verificarea utilizatorului și parolei în baza de date
 
-        $result = mysqli_query($conn,$sql);
+    // Exemplu de inserare în baza de date
+    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    $result = pg_query($conn, $sql);
+    if ($result) {
+        // Inserarea s-a realizat cu succes
 
-        if(myssqli_num_rows($result) === 1){
-            $row = mysqli_fetch_assoc($result);
-            if($row['username'] === $username && $row['password']===$pwd){
-                echo "Logged in";
-                exit();
-            }
-            else {
-                echo "Credentialele au fost gresite";
-            }
-        }
+        // Redirecționare către pagina principală (home)
+        header("Location: index.html");
+        exit();
+    } else {
+        echo "Eroare la inserarea datelor în baza de date: " . pg_last_error($conn);
     }
-?>
+}
 
+// Închideți conexiunea la baza de date
+pg_close($conn);
+?>
