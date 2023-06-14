@@ -9,5 +9,5 @@ window.onclick = function(event) {
 }
 
 function redirectToRegistration() {
-    window.location.href = "registration.html";
+    window.location.href = "register.html";
 }
