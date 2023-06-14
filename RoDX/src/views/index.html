@@ -41,7 +41,7 @@
         <button onclick="document.getElementById('id01').style.display='block'"><svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path></svg></button>
 
         <div id="id01" class="modal">
-            <form class="modal-content animate" action="login.php" method="post">
+            <form class="modal-content animate" action="../api/login.php" method="post">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <img src="../static/images/login.png" alt="Avatar" class="avatar">
@@ -55,9 +55,11 @@
                     <input type="password" placeholder="Enter Password" name="password" required>
         
                     <button type="submit" class="submit" name="login">Login</button>
+                    <button type="submit" class="submit" name="register" onclick="redirectToRegistration()">Register</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
+                   
                 </div>
         
                 <div class="cont" style="background-color:#f1f1f1">

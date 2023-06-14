@@ -1,0 +1,189 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+
+h1,
+h2 {
+  text-align  : center;
+  font-weight : bold;
+  margin-block: 15px;
+}
+
+form {
+  display         : flex;
+  color           : #1CAC78;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+  text-align      : center;
+  height: 100%;
+  min-height: 66.5vh;
+  background-color: #fff;
+}
+
+label {
+  font-weight: bold;
+  padding    : 10px;
+}
+
+input {
+  background-color: #fff;
+  border          : none;
+  outline         : none;
+  padding         : 10px;
+  border-radius   : 10px;
+  max-width       : 75%;
+
+}
+
+.login-form {
+  align-items    : center;
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+
+  min-height: 100vh;
+}
+
+.button {
+  cursor          : pointer;
+  background-color:  #1CAC78;
+  color           : #fff;
+  font-size       : 1rem;
+  font-weight     : bold;
+  padding         : 12px 30px;
+  letter-spacing  : 1px;
+  text-transform  : uppercase;
+  transition      : transform 50ms ease-in;
+  border-radius   : 10px;
+  margin-top      : 15px;
+}
+
+
+.button:active {
+  transform: scale(0.9);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.container {
+  background   : #f2f2f2;
+  box-shadow   : 3px 3px 30px 5px rgba(0, 0, 0.22, 0.22);
+  border-radius: 50px;
+  position     : relative;
+  overflow     : hidden;
+  max-width    : 100%;
+  width        : 750px;
+  min-height   : 600px;
+}
+
+
+
+.signup-container {
+  top       : 0;
+  left      : 0;
+  width     : 50%;
+  height    : 100%;
+  z-index   : 1;
+  transform : translateX(100%);
+ 
+  transition: all 0.6s ease-in-out;
+}
+
+
+
+
+#password-constraints,
+#username-constraints,
+#register-failed,
+#login-failed,
+#email-constraints {
+  font-size: 0.7em;
+  height   : 0.7em;
+}
+
+/* OVERLAP */
+
+.quote {
+  color: #1CAC78;
+}
+
+.overlap-container {
+  position                  : absolute;
+  top                       : 0;
+  height                    : 100%;
+ 
+  overflow                  : hidden;
+  transition                : transform 0.6s ease-in-out;
+  transition-timing-function: cubic-bezier(.25, 1, .84, .88);
+
+  background: #f2f2f2;
+  z-index   : 10;
+  flex-direction  : column;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+ 
+  height          : 100%;
+  width           : 50%;
+  transform       : translateX(0);
+}
+
+
+
+
+
+.button:hover {
+  zoom   : 1;
+  filter : alpha(opacity=50);
+  opacity: 0.5;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .button {
+    font-size: 0.7rem;
+    padding  : 10px 10px;
+    max-width: 85%;
+
+  }
+
+  input {
+    max-width: 70%;
+  }
+
+  
+
+  #password-constraints,
+  #username-constraints {
+    font-size: 0.7em;
+    height   : 1.8em;
+  }
+
+  #register-failed,
+  #login-failed,
+  #email-constraints {
+    font-size: 0.7em;
+    height   : 0.7em;
+  }
+
+}

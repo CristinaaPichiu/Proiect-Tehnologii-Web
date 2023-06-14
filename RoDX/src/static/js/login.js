@@ -7,3 +7,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+function redirectToRegistration() {
+    window.location.href = "registration.html";
+}
