@@ -1,5 +1,5 @@
 
-const usernameTag = "username";
+const usernameTag = "name";
 const passwordTag = "password";
 const passwordTag1 = "firstPassword";
 const passwordTag2 = "secondPassword";
@@ -48,8 +48,8 @@ function register(registerCredentials) {
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   xhr.onreadystatechange = function () {
     if (xhr.status === 201 && xhr.readyState == 4) {
-      // console.log("User Registered!");                                        //todo
-      window.location.href = "./login.html";
+      //console.log("User Registered!");                                        //todo
+      window.location.href = "../../views/index.html";
     }
     else if(xhr.readyState == 4){
       cleanHtml()

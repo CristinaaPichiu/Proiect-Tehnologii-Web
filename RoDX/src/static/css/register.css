@@ -19,19 +19,17 @@ h2 {
 
 form {
   display         : flex;
-  color           : #1CAC78;
   flex-direction  : column;
   align-items     : center;
   justify-content : center;
   text-align      : center;
-  height: 100%;
-  min-height: 66.5vh;
+  height          : 100%;
   background-color: #fff;
 }
 
 label {
   font-weight: bold;
-  padding    : 10px;
+  padding    : 5px;
 }
 
 input {
@@ -50,7 +48,7 @@ input {
   flex-direction : column;
   justify-content: center;
 
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .button {
@@ -79,29 +77,48 @@ input {
 .container {
   background   : #f2f2f2;
   box-shadow   : 3px 3px 30px 5px rgba(0, 0, 0.22, 0.22);
-  border-radius: 50px;
+  border-radius: 20px;
   position     : relative;
   overflow     : hidden;
   max-width    : 100%;
-  width        : 750px;
-  min-height   : 600px;
+  width        : 700px;
+  min-height   : 550px;
 }
 
-
+.signin-container {
+  position  : absolute;
+  left      : 0;
+  top       : 0;
+  height    : 100%;
+  width     : 50%;
+  z-index   : 2;
+  transform : translateX(0);
+  transition: all 0.6s ease-in-out;
+}
 
 .signup-container {
+  position  : absolute;
   top       : 0;
   left      : 0;
   width     : 50%;
   height    : 100%;
   z-index   : 1;
-  transform : translateX(100%);
- 
+  opacity   : 0;
+  transform : translateX(150%);
   transition: all 0.6s ease-in-out;
 }
 
+/* Transitions */
+.container.move-panel .signin-container {
+  transform: translateX(-50%);
+  opacity  : 0;
+}
 
-
+.container.move-panel .signup-container {
+  transform: translateX(100%);
+  opacity  : 1;
+  z-index  : 5;
+}
 
 #password-constraints,
 #username-constraints,
@@ -122,26 +139,56 @@ input {
   position                  : absolute;
   top                       : 0;
   height                    : 100%;
- 
+  width                     : 100%;
   overflow                  : hidden;
   transition                : transform 0.6s ease-in-out;
   transition-timing-function: cubic-bezier(.25, 1, .84, .88);
 
   background: #f2f2f2;
   z-index   : 10;
+  transform : translateX(50%);
+}
+
+.container.move-panel .overlap-container {
+  transform: translateX(-50%);
+}
+
+.overlap-sign-in {
+  position       : absolute;
+  flex-direction : column;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  top            : 0;
+  height         : 100%;
+  width          : 50%;
+  transform      : translateX(100%);
+
+  transition      : opacity 0.2s ease-in-out;
+  opacity         : 0;
+
+}
+
+.container.container.move-panel .overlap-sign-in {
+  transform: translateX(100%);
+  opacity  : 1;
+
+
+}
+
+.overlap-sign-up {
+  position        : absolute;
   flex-direction  : column;
   display         : flex;
   align-items     : center;
   justify-content : center;
- 
+  top             : 0;
   height          : 100%;
   width           : 50%;
   transform       : translateX(0);
+  transition      : opacity 0.2s ease-in-out;
+  opacity         : 1;
 }
-
-
-
-
 
 .button:hover {
   zoom   : 1;
@@ -150,6 +197,11 @@ input {
 }
 
 
+.container.container.move-panel .overlap-sign-up {
+  transform: translateX(0);
+  opacity  : 0;
+}
+
 @media only screen and (max-width: 768px) {
 
   h1 {
@@ -157,7 +209,7 @@ input {
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   .button {
@@ -171,7 +223,13 @@ input {
     max-width: 70%;
   }
 
-  
+  .nav-menu {
+    transform: translate(0px, 55px);
+  }
+
+  .hamburger.active {
+    transform: translate(-5px, -95px);
+  }
 
   #password-constraints,
   #username-constraints {

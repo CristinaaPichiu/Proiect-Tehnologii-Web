@@ -2,7 +2,7 @@
 // conexiunea cu baza de date
 include 'DataBaseConn.php';
 
-if(isset($_POST['submit'])){
+if(isset($_POST['register'])){
     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
 
         $name = $_POST['name'];
