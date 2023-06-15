@@ -1,117 +1,265 @@
-.container {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  padding-top: 200px;
+@import "../styles/style-main.css";
+
+/* Body style */
+
+body {
+  background-color: white; /* Setează fundalul paginii în alb */
 }
 
-polyline {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 5s ease-in forwards;
-  animation-iteration-count: 10;
-  animation-direction: alternate;
-  
+
+/* Wrapper style */
+.wrapper {
+    display           : flex;
+    position          : absolute;
+    justify-content   : center;
+    margin-top        : 65px;
+    /* margin-left    : 10px;
+    margin-right      : 10px; */
+    height            : 90vh;
+    width             : 100%;
+    margin-top: 10px;
 }
 
-@keyframes dash{
-  to {
-    stroke-dashoffset: 0;
-  }
+/* Canvas Style */
+.canvas {
+    position: relative;
+    width   : 75%;
+    height  : 100%;
+    margin-top:10px;
 }
 
-html {
-  box-sizing: border-box;
-  }
-  
-  * {
-  box-sizing: inherit;
-  }
-  
-  body {
-  padding: 2em;
-  }
-  
-  ul {
-  list-style: none;
-  }
-  
-  label {
-  cursor: pointer;
-  }
-  
-  ul, li {
-  margin: 0;
-  padding: 0;
-  }
-  
-  li {
-  padding: 0.5em;
-  }
-  
-  .filters {
-  width: 250px;
-  box-shadow: 0 0 0.5em 0 rgba(0,0,0,0.3);
-  padding: 1.5em;
-  position: absolute;
-  top: -700px;
-  position: relative;
-  }
-  
-  .filters__list li {
-  display: flex;
-  align-items: center;
-  user-select: none;
-  padding-bottom: 1em;
-  line-height: 0;
-  }
-  
-  .filters__list li:last-child {
-  padding-bottom: 0;
-  }
-  
-  input[type="checkbox"] {
-  margin-right: 0.5em;
-  }
-  
-  .filters:not(.filters--active) {
-  display: none;
-  }
-  
-  .buttonFiltru {
-  background: #1CAC78;
-  padding: 1em 2em;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  border: 0;
-  outline: 0;
-  text-align: left;
-  min-width: 150px;
-  display: inline-flex;
-  justify-content: space-between;
-  color: #f5f5f5;
-  cursor: pointer;
-  top: -700px;
-  position: relative;
-  
-  }
-  @media only screen and (max-width: 600px) {
-    .buttonFiltru {
-      max-width: 100%;
-      padding: 1em;
+/* Filters style */
+.filters {
+    position: relative;
+    width   : 25%;
+    height  : 100%;
+    margin-top: 200px;
+    margin-left: -1300px;
+}
+
+/* Form for filters style */
+.form-group {
+    width     : 100%;
+    height    : 86%;
+    position  : relative;
+    overflow-y: auto;
+}
+
+.form-item {
+    width         : 100%;
+    display       : flex;
+    flex-direction: column;
+    margin        : 10px 0;
+    font-size     : 1.2rem;
+}
+
+.form-item i {
+    /* color          : rgba(59, 59, 243, 0.76); */
+    width          : 5%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+
+.filters-title {
+    position      : relative;
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* font-weight: bold; */
+    width         : 95%;
+    height        : 5%;
+    margin-left   : 2%;
+    font-size     : 1.6rem;
+    text-align    : center;
+    margin-bottom: 20px;;
+}
+
+
+@media (max-width: 768px) {
+    .filters-title {
+        margin-left: 2%;
     }
-  }
-  
-  .buttonFiltru::after {
-  font-family: sans-serif;
-  content: "v";
-  padding-left: 0.5em;
-  
 
-  }
-  
-  .buttonFiltru--highlight::after {
-  content: "o";
-  }
+    .wrapper {
+        display: block;
+    }
 
+    .canvas {
+        width: 100%;
+    }
+
+    .filters {
+        width        : 100%;
+        margin-bottom: 30px;
+    }
+}
+
+.form-item input[type=date],
+.form-item input[type=number],
+.form-item input[type=text],
+.select-options {
+    /* background-color: var(--color-second2); */
+    border-radius: 10px;
+    width        : 98%;
+    box-sizing   : border-box;
+    font-size    : 1.2rem;
+    margin-left  : 2%;
+}
+
+.form-item input[type=text] {
+    border : none;
+    outline: none;
+}
+
+.select-options {
+    background-color: var(--color-second2);
+    color           : white;
+}
+
+.form-item-checkbox {
+    /* font-weight: bold; */
+    width          : 95%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.btn {
+    margin-top   : 5px;
+    width        : 100%;
+    border-radius: 10px;
+    padding      : 5px 0;
+    color        : #eeeeee;
+    cursor       : pointer;
+    outline      : none;
+}
+
+.btn:active {
+    transform        : translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+}
+
+/* button:focus {
+    outline: none;
+} */
+
+.btn:hover {
+    opacity: 0.90;
+}
+
+.accordion {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    background-color: var(--color-third);
+    color           : var(--color-main);
+    cursor          : pointer;
+    width           : 100%;
+    height          : 6%;
+    border          : none;
+    text-align      : center;
+    outline         : none;
+    font-size       : 1.2rem;
+    transition      : 0.4s;
+    overflow-wrap   : break-word;
+}
+
+.accordion-text {
+    width         : 95%;
+    /* font-weight: bold; */
+}
+
+.accordion span {
+    height: 100%;
+}
+
+.active,
+.accordion:hover {
+    background-color: #eee;
+}
+
+.panel {
+    background-color: white;
+    max-height      : 0;
+    overflow        : hidden;
+    transition      : max-height 0.2s ease-out;
+}
+
+
+::-webkit-scrollbar {
+    width : 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .1);
+    border-radius   : 3px;
+}
+
+.filter-selected {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    float          : left;
+    height         : 100%;
+    width          : 2%;
+    margin-left    : 1px;
+}
+
+
+.checked {
+    background-color   : #222831;
+    /* background-color: white; */
+}
+
+.unchecked {
+    background-color: red;
+}
+
+.reset_filters {
+    border-color    : #393e46;
+    background-color: #393e46;
+    height: 50px;
+}
+
+.submit_filters {
+    border-color    : #1CAC78;
+    background-color: #1CAC78;
+    height: 50px;
+    margin-top     : 40px;
+}
+
+.download_methods {
+    width          : 100%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+    margin-left    : 2%;
+   
+}
+
+.download_button {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    width          : 80%;
+    border         : none;
+    outline        : none;
+    cursor         : pointer;
+    list-style     : none;
+    text-decoration: none;
+    border-radius  : 10px;
+    margin-bottom  : 10px;
+    text-align     : left;
+}
+
+.download_button .download_button_text {
+    width: 80%;
+}
+
+.download_button i {
+    width      : 20%;
+    color      : var(--color-second);
+    margin-left: 10px;
+}
