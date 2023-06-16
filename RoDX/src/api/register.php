@@ -12,7 +12,7 @@ if(isset($_POST['register'])){
         $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
         $result = pg_query($con, $query);
         if ($result) {
-            header("Location: ../views/statistici.html");
+            header("Location: ../views/index.html");
             exit(); 
         } else {
             echo "Error: Unable to insert data into the database\n";
