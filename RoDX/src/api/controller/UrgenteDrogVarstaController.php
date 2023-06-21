@@ -1,7 +1,7 @@
 <?php
 namespace controller;
 
-class UrgenteDrogAdministrareController {
+class UrgenteDrogVarstaController {
     private $conn;
 
     /**
