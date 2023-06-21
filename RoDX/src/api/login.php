@@ -1,12 +1,15 @@
 <?php
-// conexiunea cu baza de date
 include 'DataBaseConn.php';
+use api\DataBaseConn;
+
+$dbConnectionObj = new DataBaseConn();
+$dbConnection = $dbConnectionObj->getConnection();
 
 $query = "SELECT * FROM users";
-$result = pg_query($con, $query);
+$result = $dbConnection->query($query);
 
 if(isset($_POST['login'])){
-    if (pg_num_rows($result) == 0) {
+    if ($result->rowCount() == 0) {
         echo "Error: Unable to open database\n";
     } else {
         if (isset($_POST['name']) && isset($_POST['password'])) {
@@ -16,10 +19,13 @@ if(isset($_POST['login'])){
 
             // Verificarea numelor de utilizator și parolei în baza de date
 
-            $query = "SELECT * FROM users WHERE email='$name' AND password='$password'";
-            $result = pg_query($con, $query);
+            $query = "SELECT * FROM users WHERE email=:name AND password=:password";
+            $stmt = $dbConnection->prepare($query);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
 
-            if (pg_num_rows($result) != 0) {
+            if ($stmt->rowCount() != 0) {
                 header("Location: ../views/index.html");
                 exit();
             } else {
@@ -29,6 +35,5 @@ if(isset($_POST['login'])){
     }
 } 
 
-
-pg_close($con);
+$dbConnection = null;
 ?>

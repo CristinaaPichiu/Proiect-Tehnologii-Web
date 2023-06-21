@@ -1,6 +1,7 @@
 <?php
 // conexiunea cu baza de date
 include 'DataBaseConn.php';
+use api\DataBaseConn;
 
 
 if(isset($_POST['logout'])){
@@ -8,5 +9,5 @@ if(isset($_POST['logout'])){
     exit;
 }
 
-pg_close($con);
+
 ?>

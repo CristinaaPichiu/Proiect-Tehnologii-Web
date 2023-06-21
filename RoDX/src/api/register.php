@@ -1,6 +1,10 @@
 <?php
 // conexiunea cu baza de date
 include 'DataBaseConn.php';
+use api\DataBaseConn;
+
+$dbConnectionObj = new DataBaseConn();
+$dbConnection = $dbConnectionObj->getConnection();
 
 if(isset($_POST['register'])){
     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
@@ -10,7 +14,8 @@ if(isset($_POST['register'])){
         $password = $_POST['password'];
 
         $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-        $result = pg_query($con, $query);
+        $result = $dbConnection->prepare($query);
+        $result->execute();
         if ($result) {
             header("Location: ../views/index.html");
             exit(); 
@@ -19,5 +24,5 @@ if(isset($_POST['register'])){
         }
     }
 }
-pg_close($con);
+
 ?>
