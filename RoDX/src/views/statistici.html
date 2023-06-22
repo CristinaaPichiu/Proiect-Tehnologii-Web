@@ -54,7 +54,12 @@
         </div>
     </header>
 
-    <canvas id="myChart" class="small-chart"></canvas>
+    
+        
+                <button class="form-item-button" id="attack_type_1" value="1" onclick="generateGraph('../../CondamnariSexe.json')">canabis</button>
+         
+
+                <canvas id="myChart" class="chart-container "></canvas>
 
     <script>
         // Funcția pentru a citi datele din fișier
@@ -92,7 +97,7 @@
             // Creăm un nou grafic folosind Chart.js
             const ctx = document.getElementById('myChart').getContext('2d');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'pie',
                 data: {
                     labels: labels,
                     datasets: datasets
@@ -108,15 +113,16 @@
             });
         }
         
-
-        // Apelarea funcției pentru a citi datele din fișier și a crea graficul
-        readDataFromFile("../../CondamnariSexe.json")
-            .then((data) => {
-                createChart(data);
-            })
-            .catch((error) => {
-                console.error("A apărut o eroare la citirea fișierului:", error);
-            });
+        // Funcția pentru a genera graficul pe baza fișierului selectat
+        function generateGraph(file) {
+            readDataFromFile(file)
+                .then((data) => {
+                    createChart(data);
+                })
+                .catch((error) => {
+                    console.error("A apărut o eroare la citirea fișierului:", error);
+                });
+        }
     </script>
 </body>
 </html>
