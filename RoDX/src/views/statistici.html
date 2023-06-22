@@ -1,147 +1,116 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RoDX</title>
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-        <link rel="stylesheet" type="text/css" href="../static/css/statistici.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/1700e3d335.js" crossorigin="anonymous"></script>
-        <title>Filters</title>
-     
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoDX</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/statistici.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1700e3d335.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-   
-    </head>
-
-    <body>
-        <header>
-          <div class="logo">
+<body>
+    <header>
+        <div class="logo">
             <a href="index.html">
                 <img src="../static/images/logo.png" alt="logo">
                 <span class="logo-text">RoDX.</span>
             </a>
         </div>
-      <div class="group">
-        <ul class="navigation">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="statistici.html">statistics</a></li>
-            <li><a href="droguri.html">Drugs</a></li>
-            <li><a href="help.html">Help</a></li>
-           
-        </ul>
-        <div class="search">
-            <span class="icon">
-                <ion-icon name="search-outline" class="searchBtn"></ion-icon>
-                <ion-icon name="close-outline" class="closeBtn"></ion-icon>
-
-            </span>
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="statistici.html">Statistics</a></li>
+                <li><a href="droguri.html">Drugs</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
         </div>
-        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
-      </div>
-      <div class="searchBox">
-        <input type="text" placeholder="Search here...">
-      </div>
+        <div class="searchBox">
+            <input type="text" placeholder="Search here...">
+        </div>
 
-      <button onclick="window.location.href='../views/register.html'"><svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path></svg></button>
+        <button onclick="window.location.href='../views/register.html'">
+            <svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path>
+            </svg>
+        </button>
 
-
-      <div class="contact-button">
-        <a href="help.html">
-          <img src="../static/images/phone.png" alt="Contact Us">
-        </a>
-      </div>
-
+        <div class="contact-button">
+            <a href="help.html">
+                <img src="../static/images/phone.png" alt="Contact Us">
+            </a>
+        </div>
     </header>
 
+    <canvas id="myChart"></canvas>
 
-    <div class="container">
-        <div class="diagrams">
-         <div class="choiceType">
-             <h2>Alege filtrele pentru startistici</h2>
-             <div class="dropdownBlock">
-                 <div class="title">
-                     <h1>
-                         Alege intervalul de varsta
-                     </h1>
-                 </div>
-                 <div class="selector">
-                     <select id="actors" onChange="showSelectValue()">
-                             <option class="none"></option>
-                             <option class="minori">Minori</option>
-                             <option class="majori">Majori</option>
-                             
-                     </select>
-                 </div>
-             </div>
-             <div class="selectYear">
-                 <div class="typeOfDiagram">
-                 <label class="type">
-                     <input type="radio" id="year1" name="recommed" value="sex">
-                     Sex
-                     
-                 </label>
-                 <label class="type">
-                     <input type="radio" id="year2" name="recommed" value="urgenteInternari">
-                     Urgente Internari
-                     
-                 </label>
-                 <label class="type">
-                     <input type="radio" id="year3" name="recommed" value="consum">
-                     Modalitate de consum
-                     
-                 </label>
-                 </div>
-             
-                 <div class="col2">
-                     <div class="dropdownBlock2">
-                         <div class="title2">
-                             <h1>
-                                 Alege un an
-                             </h1>
-                         </div>
-                         <div class="selector">
-                             <select id="yearChoose" onChange="showYearValue()">
-                                <option>Toti anii</option>
-                                <option>2021</option>
-                                 <option>2020</option>
-                                 <option>2019</option>
-                             </select>
-                         </div>
-                     </div>
-                 </div>
- 
-             </div>
-             <div class="submit">
-                 <button class="button" onclick="generateGraph()">Generate</button>
-             </div>
- 
-         </div>
-         <div class="showDiagram" id="showDiagram">
-             <canvas id="chartContainer"></canvas>
- 
-             <div class="dowloands" id="dowloands">
-                 <div class="list">
-                     <a href="#" id="d1" onclick="downloadCSV()"><span >Download</span><span>CSV</span></a>
-                     <a href="#" id="d2" onclick="downloadWEBP()"><span >Download</span><span>WEBP</span></a>
-                     <a href="#" id="d3" onclick="downloadSVG()"><span >Download</span><span>SVG</span></a>
-                 </div>
-             </div>
-         </div>
-     </div>
-     </div>
+    <script>
+        // Funcția pentru a citi datele din fișier
+        function readDataFromFile(file) {
+            return fetch(file)
+                .then(response => response.json())
+                .catch(error => {
+                    throw new Error(`A apărut o eroare la citirea fișierului: ${error}`);
+                });
+        }
 
+        // Funcția pentru a crea graficul cu datele primite
+        function createChart(data) {
+            const labels = [];
+            const values = [];
+            
+            // Parcurgem datele și extragem etichetele și valorile
+            for (const item of data) {
+                const [label, value] = item[i].split(";");
+                labels.push(label);
+                values.push(parseInt(value));
+            }
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            // Creăm un nou grafic folosind Chart.js
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Condamnări pe sexe',
+                        data: values,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
 
-    <script type="text/javascript" src="../static/js/file.js"></script>
-    <script type="text/javascript" src="../static/js/statistici.js"></script>
-
-
-
-    </body>
+        // Apelarea funcției pentru a citi datele din fișier și a crea graficul
+        readDataFromFile("../../CondamnariSexe.json")
+            .then((data) => {
+                createChart(data);
+            })
+            .catch((error) => {
+                console.error("A apărut o eroare la citirea fișierului:", error);
+            });
+    </script>
+</body>
 </html>

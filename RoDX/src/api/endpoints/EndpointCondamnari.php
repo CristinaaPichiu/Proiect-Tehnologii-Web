@@ -237,8 +237,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->sex . ".php")) {
-            include($this->sex . ".php");
+        if (file_exists($this->sex . ".json")) {
+            include($this->sex . ".json");
         }
         else{
             $stmt = $items->getAllBySex();
@@ -246,13 +246,13 @@ class EndpointCondamnari {
             $sexe = array();
             if ($itemCount > 0) {
                 $index = 0;
-                $concat = "";
+                $concat = "femei;";
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     extract($row);
                     foreach ($row as $linie) {
                         if ($index == 1) {
                             $sexe[] = $concat;
-                            $concat = "";
+                            $concat = "barbati;";
                             $index = 0;
                             if ($index == 0) {
 
@@ -270,7 +270,7 @@ class EndpointCondamnari {
                     }
                 }
                 $sexe[] = $concat;
-                $handle = fopen($this->sex . ".php", "w");
+                $handle = fopen($this->sex . ".json", "w");
                 fwrite($handle, json_encode(array($sexe)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($sexe)) . "\n \n \n ";
