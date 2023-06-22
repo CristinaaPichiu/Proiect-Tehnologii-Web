@@ -22,8 +22,8 @@ class EndpointCapturi {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CapturiController($db);
-        if(file_exists($this->capturiGrame.".php")){
-            include($this->capturiGrame.".php");
+        if(file_exists('src/static/cache/'.$this->capturiGrame.".json")){
+            include('src/static/cache/'.$this->capturiGrame.".json");
         }
         else{
             $stmt = $items->getAllCapturiGrame();
@@ -59,7 +59,7 @@ class EndpointCapturi {
                     }
                 }
                 $droguri[] = $concat;
-                $handle = fopen($this->capturiGrame . ".php", "w");
+                $handle = fopen('src/static/cache/'.$this->capturiGrame . ".json", "w");
                 fwrite($handle, json_encode(array($droguri)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($droguri)) . "\n \n \n ";
@@ -78,8 +78,8 @@ class EndpointCapturi {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CapturiController($db);
-        if(file_exists($this->capturiDrog."_".$drog.".php")){
-            include($this->capturiDrog."_".$drog.".php");
+        if(file_exists("src/static/cache/".$this->capturiDrog."_".$drog.".json")){
+            include("src/static/cache/".$this->capturiDrog."_".$drog.".json");
         }
         else{
             $stmt = $items->getAllByDrog($drog);
@@ -123,7 +123,7 @@ class EndpointCapturi {
                     }
                 }
                 $droguri[] = $concat;
-                $handle = fopen($this->capturiDrog."_".$drog.".php", "w");
+                $handle = fopen("src/static/cache/".$this->capturiDrog."_".$drog.".json", "w");
                 fwrite($handle, json_encode(array($droguri)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($droguri)) . "\n \n \n ";

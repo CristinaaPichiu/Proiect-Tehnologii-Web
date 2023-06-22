@@ -21,8 +21,8 @@ class EndpointCampanii {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CampaniiController($db);
-        if (file_exists($this->campanie . ".json")) {
-            include($this->campanie . ".json");
+        if (file_exists("src/static/cache/".$this->campanie . ".json")) {
+            include("src/static/cache/".$this->campanie . ".json");
         }
         else{
             $stmt = $items->getNrBeneficiari();
@@ -58,7 +58,7 @@ class EndpointCampanii {
                     }
                 }
                 $camp[] = $concat;
-                $handle = fopen($this->campanie . ".json", "w");
+                $handle = fopen("src/static/cache/".$this->campanie . ".json", "w");
                 fwrite($handle, json_encode(array($camp)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($camp)) . "\n \n \n ";

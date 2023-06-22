@@ -21,8 +21,8 @@ class EndpointActivitati {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new ActivitatiController($db);
-        if(file_exists($this->activitate."_". $activ.".php")){
-            include($this->activitate."_".$activ.".php");
+        if(file_exists("src/static/cache/".$this->activitate."_". $activ.".json")){
+            include("src/static/cache/".$this->activitate."_".$activ.".json");
         }
         else{
             $stmt = $items->getAllByActivitati($activ);
@@ -64,7 +64,7 @@ class EndpointActivitati {
                     }
                 }
                 $activitati[] = $concat;
-                $handle = fopen($this->activitate."_".$activ.".php", "w");
+                $handle = fopen("src/static/cache/".$this->activitate."_".$activ.".json", "w");
                 fwrite($handle, json_encode(array($activitati)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($activitati)) . "\n \n \n ";

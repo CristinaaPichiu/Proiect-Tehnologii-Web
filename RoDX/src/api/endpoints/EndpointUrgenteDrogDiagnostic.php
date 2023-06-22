@@ -30,8 +30,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByYearAndBoala.".json")){
-            include($this->numberOfUrgenteByYearAndBoala.".json");
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByYearAndBoala.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByYearAndBoala.".json");
         } else {
             $stmt = $items->getByYearAndBoalaUrgenteDrog();
             $itemCount = $stmt->rowCount();
@@ -68,7 +68,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByYearAndBoala.".json","w");
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByYearAndBoala.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";
@@ -87,8 +87,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByCanabis.".php")){
-            include($this->numberOfUrgenteByCanabis.".php");
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByCanabis.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByCanabis.".json");
         } else {
             $stmt = $items->getCauzaCanabisByYear();
             $itemCount = $stmt->rowCount();
@@ -125,7 +125,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByCanabis.".php","w");
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByCanabis.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";
@@ -145,8 +145,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByStimulanti.".php")){
-            include($this->numberOfUrgenteByStimulanti.".php");
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByStimulanti.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByStimulanti.".json");
         } else {
             $stmt = $items->getCauzaStimulantiByYear();
             $itemCount = $stmt->rowCount();
@@ -183,7 +183,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByStimulanti.".php","w");
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByStimulanti.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";
@@ -202,8 +202,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByOpiacee.".php")){
-            include($this->numberOfUrgenteByOpiacee.".php");
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByOpiacee.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByOpiacee.".json");
         } else {
             $stmt = $items->getCauzaOpiaceeByYear();
             $itemCount = $stmt->rowCount();
@@ -240,7 +240,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByOpiacee.".php","w");
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByOpiacee.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";
@@ -259,8 +259,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByNSP.".php")){
-            include($this->numberOfUrgenteByNSP.".php");
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByNSP.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByNSP.".json");
         } else {
             $stmt = $items->getCauzaNSPByYear();
             $itemCount = $stmt->rowCount();
@@ -297,7 +297,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByNSP.".php","w");
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByNSP.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";

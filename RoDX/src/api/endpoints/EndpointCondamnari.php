@@ -26,8 +26,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->varstaFemei . ".php")) {
-            include($this->varstaFemei . ".php");
+        if (file_exists("src/static/cache/".$this->varstaFemei . ".json")) {
+            include("src/static/cache/".$this->varstaFemei . ".json");
         }
         else{
             $stmt = $items->getByVarstaFemei();
@@ -59,7 +59,7 @@ class EndpointCondamnari {
                     }
                 }
                 $femei[] = $concat;
-                $handle = fopen($this->varstaFemei . ".php", "w");
+                $handle = fopen("src/static/cache/".$this->varstaFemei . ".json", "w");
                 fwrite($handle, json_encode(array($femei)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($femei)) . "\n \n \n ";
@@ -79,8 +79,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->varstaBarbati . ".php")) {
-            include($this->varstaBarbati . ".php");
+        if (file_exists("src/static/cache/".$this->varstaBarbati . ".json")) {
+            include("src/static/cache/".$this->varstaBarbati . ".json");
         }
         else{
             $stmt = $items->getByVarstaBarbati();
@@ -112,7 +112,7 @@ class EndpointCondamnari {
                     }
                 }
                 $barbati[] = $concat;
-                $handle = fopen($this->varstaBarbati . ".php", "w");
+                $handle = fopen("src/static/cache/".$this->varstaBarbati . ".json", "w");
                 fwrite($handle, json_encode(array($barbati)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($barbati)) . "\n \n \n ";
@@ -132,8 +132,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->varstaMajori . ".php")) {
-            include($this->varstaMajori . ".php");
+        if (file_exists("src/static/cache/".$this->varstaMajori . ".json")) {
+            include("src/static/cache/".$this->varstaMajori . ".json");
         }
         else{
             $stmt = $items->getByVarstaMajori();
@@ -165,7 +165,7 @@ class EndpointCondamnari {
                     }
                 }
                 $majori[] = $concat;
-                $handle = fopen($this->varstaMajori . ".php", "w");
+                $handle = fopen("src/static/cache/".$this->varstaMajori . ".json", "w");
                 fwrite($handle, json_encode(array($majori)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($majori)) . "\n \n \n ";
@@ -185,8 +185,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->varstaMinori . ".php")) {
-            include($this->varstaMinori . ".php");
+        if (file_exists("src/static/cache/".$this->varstaMinori . ".json")) {
+            include("src/static/cache/".$this->varstaMinori . ".json");
         }
         else{
             $stmt = $items->getByVarstaMinori();
@@ -218,7 +218,7 @@ class EndpointCondamnari {
                     }
                 }
                 $minori[] = $concat;
-                $handle = fopen($this->varstaMinori . ".php", "w");
+                $handle = fopen("src/static/cache/".$this->varstaMinori . ".json", "w");
                 fwrite($handle, json_encode(array($minori)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($minori)) . "\n \n \n ";
@@ -237,8 +237,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->sex . ".json")) {
-            include($this->sex . ".json");
+        if (file_exists("src/static/cache/".$this->sex . ".json")) {
+            include("src/static/cache/".$this->sex . ".json");
         }
         else{
             $stmt = $items->getAllBySex();
@@ -270,7 +270,7 @@ class EndpointCondamnari {
                     }
                 }
                 $sexe[] = $concat;
-                $handle = fopen($this->sex . ".json", "w");
+                $handle = fopen("src/static/cache/".$this->sex . ".json", "w");
                 fwrite($handle, json_encode(array($sexe)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($sexe)) . "\n \n \n ";
@@ -289,8 +289,8 @@ class EndpointCondamnari {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new CondamnariController($db);
-        if (file_exists($this->varsta . ".php")) {
-            include($this->varsta . ".php");
+        if (file_exists("src/static/cache/".$this->varsta . ".json")) {
+            include("src/static/cache/".$this->varsta . ".json");
         }
         else{
             $stmt = $items->getAllByVarsta();
@@ -322,7 +322,7 @@ class EndpointCondamnari {
                     }
                 }
                 $varste[] = $concat;
-                $handle = fopen($this->varsta . ".php", "w");
+                $handle = fopen("src/static/cache/".$this->varsta . ".json", "w");
                 fwrite($handle, json_encode(array($varste)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($varste)) . "\n \n \n ";

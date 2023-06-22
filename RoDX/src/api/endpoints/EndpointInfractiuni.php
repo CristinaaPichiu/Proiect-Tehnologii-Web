@@ -21,8 +21,8 @@ class EndpointInfractiuni {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new InfractiuniController($db);
-        if (file_exists($this->infractiune . ".json")) {
-            include($this->infractiune . ".json");
+        if (file_exists("src/static/cache/".$this->infractiune . ".json")) {
+            include("src/static/cache/".$this->infractiune . ".json");
         }
         else{
             $stmt = $items->getAllInfractiuni();
@@ -54,7 +54,7 @@ class EndpointInfractiuni {
                     }
                 }
                 $infractiuni[] = $concat;
-                $handle = fopen($this->infractiune . ".json", "w");
+                $handle = fopen("src/static/cache/".$this->infractiune . ".json", "w");
                 fwrite($handle, json_encode(array($infractiuni)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($infractiuni)) . "\n \n \n ";
