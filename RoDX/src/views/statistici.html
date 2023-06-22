@@ -70,10 +70,10 @@
         function createChart(data) {
             const labels = [];
             const values = [];
-            
+
             // Parcurgem datele și extragem etichetele și valorile
             for (const item of data) {
-                const [label, value] = item[i].split(";");
+                const [label, value] = item[0].split(";");
                 labels.push(label);
                 values.push(parseInt(value));
             }
