@@ -76,6 +76,7 @@ class CondamnariController{
         $stmt->execute();
         return $stmt;
     }
+    
 }
 
 ?>
