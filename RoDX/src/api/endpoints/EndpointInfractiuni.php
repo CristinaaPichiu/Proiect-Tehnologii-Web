@@ -21,8 +21,8 @@ class EndpointInfractiuni {
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new InfractiuniController($db);
-        if (file_exists($this->infractiune . ".php")) {
-            include($this->infractiune . ".php");
+        if (file_exists($this->infractiune . ".json")) {
+            include($this->infractiune . ".json");
         }
         else{
             $stmt = $items->getAllInfractiuni();
@@ -30,31 +30,31 @@ class EndpointInfractiuni {
             $infractiuni = array();
             if ($itemCount > 0) {
                 $index = 0;
-                $concat = "";
+                $concat = "Grupari identificate;";
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     extract($row);
                     foreach ($row as $linie) {
                         if ($index == 1) {
                             $infractiuni[] = $concat;
-                            $concat = "";
+                            $concat = "Numar persoane implicate;";
                             $index = 0;
                             if ($index == 0) {
 
-                                $concat = $concat . $linie . ';';
+                                $concat = $concat . $linie;
 
                             }
                         } 
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $linie . ';';
-
+                                $concat = $concat . $linie ;
                             }
+                        
                         }
                         $index++;
                     }
                 }
                 $infractiuni[] = $concat;
-                $handle = fopen($this->infractiune . ".php", "w");
+                $handle = fopen($this->infractiune . ".json", "w");
                 fwrite($handle, json_encode(array($infractiuni)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($infractiuni)) . "\n \n \n ";

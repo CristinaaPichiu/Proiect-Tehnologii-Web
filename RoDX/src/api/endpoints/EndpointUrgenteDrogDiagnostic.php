@@ -30,8 +30,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogDiagnosticController($db);
-        if(file_exists($this->numberOfUrgenteByYearAndBoala.".php")){
-            include($this->numberOfUrgenteByYearAndBoala.".php");
+        if(file_exists($this->numberOfUrgenteByYearAndBoala.".json")){
+            include($this->numberOfUrgenteByYearAndBoala.".json");
         } else {
             $stmt = $items->getByYearAndBoalaUrgenteDrog();
             $itemCount = $stmt->rowCount();
@@ -68,7 +68,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $boli[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByYearAndBoala.".php","w");
+                $handle = fopen($this->numberOfUrgenteByYearAndBoala.".json","w");
                 fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($boli)) . "\n \n \n ";

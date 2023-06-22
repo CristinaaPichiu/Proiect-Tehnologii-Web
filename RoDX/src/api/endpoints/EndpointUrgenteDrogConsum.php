@@ -10,7 +10,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 
-class EndpointUrgenteDrogDiagnostic{
+class EndpointUrgenteDrogConsum{
 
     public $numberOfUrgenteByYearAndConsum;
     public $numberOfUrgenteByCanabis;
@@ -30,8 +30,8 @@ class EndpointUrgenteDrogDiagnostic{
         $database = new DataBaseConn();
         $db = $database->getConnection();
         $items = new UrgenteDrogConsumController($db);
-        if(file_exists($this->numberOfUrgenteByYearAndConsum.".php")){
-            include($this->numberOfUrgenteByYearAndConsum.".php");
+        if(file_exists($this->numberOfUrgenteByYearAndConsum.".json")){
+            include($this->numberOfUrgenteByYearAndConsum.".json");
         } else {
             $stmt = $items->getByYearAndConsumUrgenteDrog();
             $itemCount = $stmt->rowCount();
@@ -68,7 +68,7 @@ class EndpointUrgenteDrogDiagnostic{
                     }
                 }
                 $consum[] = $concat;
-                $handle = fopen($this->numberOfUrgenteByYearAndConsum.".php","w");
+                $handle = fopen($this->numberOfUrgenteByYearAndConsum.".json","w");
                 fwrite($handle, json_encode(array($consum)) . "\n \n \n ");
                 fclose($handle);
                 echo json_encode(array($consum)) . "\n \n \n ";

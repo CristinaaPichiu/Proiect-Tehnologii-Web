@@ -256,13 +256,13 @@ class EndpointCondamnari {
                             $index = 0;
                             if ($index == 0) {
 
-                                $concat = $concat . $linie . ';';
+                                $concat = $concat . $linie ;
 
                             }
                         } 
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $linie . ';';
+                                $concat = $concat . $linie;
 
                             }
                         }

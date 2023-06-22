@@ -34,7 +34,7 @@ class InfractiuniController{
     }
 
     public function getAllInfractiuni(){
-        $sqlQuery = sprintf("SELECT s FROM %s s" , $this->db_table);
+        $sqlQuery = sprintf("SELECT grupari_identificate, nr_persoane_implicate  FROM %s s" , $this->db_table);
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute();
         return $stmt;
