@@ -61,106 +61,54 @@
     <div class="container">
         <div class="diagrams">
          <div class="choiceType">
-             <h2>♦ Choose options for statistics ♦</h2>
+             <h2>Alege filtrele pentru startistici</h2>
              <div class="dropdownBlock">
                  <div class="title">
                      <h1>
-                         Choose a type of actors
+                         Alege intervalul de varsta
                      </h1>
                  </div>
                  <div class="selector">
                      <select id="actors" onChange="showSelectValue()">
-                             <option class="nominees">Nominees</option>
-                             <option class="winnwers">Winners</option>
+                             <option class="none"></option>
+                             <option class="minori">Minori</option>
+                             <option class="majori">Majori</option>
+                             
                      </select>
                  </div>
              </div>
              <div class="selectYear">
-                 <div class="allYears">
-                     <label for="recommed-1">
-                         <input type="radio" id="recommed-1" name="recommed1" onclick="selectAllYears()" value="All Years">
-                             All Years
-                     </label>
-                 </div>
                  <div class="typeOfDiagram">
                  <label class="type">
-                     <input type="radio" id="year1" name="recommed" value="line">
-                     Line
+                     <input type="radio" id="year1" name="recommed" value="sex">
+                     Sex
                      
                  </label>
                  <label class="type">
-                     <input type="radio" id="year2" name="recommed" value="pie">
-                     Pie
+                     <input type="radio" id="year2" name="recommed" value="urgenteInternari">
+                     Urgente Internari
                      
                  </label>
                  <label class="type">
-                     <input type="radio" id="year3" name="recommed" value="column">
-                     Column
+                     <input type="radio" id="year3" name="recommed" value="consum">
+                     Modalitate de consum
                      
                  </label>
                  </div>
-             </div>
-             <div class="selectCategories">
-                 <div class="col1">
-                     <div class="allCategory">
-                         <label for="recommed2">
-                             <input type="radio" id="recommed2" name="recommed1" onclick="selectAllCategories()" value="All Categories">
-                             All Categories
-                             
-                         </label>
-                     </div>
-                     <div class="typeOfDiagram">
-                         <label class="type1">
-                             <input type="radio" id="cat1" name="recommed" value="bar">
-                             Bar
-                             
-                         </label>
-                         <label class="type1">
-                             <input type="radio" id="cat2" name="recommed" value="pie">
-                             Pie
-                             
-                         </label>
-                         <label class="type1">
-                             <input type="radio" id="cat3" name="recommed" value="column">
-                             Column
-                             
-                         </label>
-                     </div>
-                 </div>
+             
                  <div class="col2">
                      <div class="dropdownBlock2">
                          <div class="title2">
                              <h1>
-                                 Choose a year
+                                 Alege un an
                              </h1>
                          </div>
                          <div class="selector">
                              <select id="yearChoose" onChange="showYearValue()">
+                                <option>Toti anii</option>
+                                <option>2021</option>
                                  <option>2020</option>
                                  <option>2019</option>
-                                 <option>2018</option>
-                                 <option>2017</option>
-                                 <option>2016</option>
-                                 <option>2015</option>
-                                 <option>2014</option>
-                                 <option>2013</option>
-                                 <option>2012</option>
-                                 <option>2011</option>
-                                 <option>2010</option>
-                                 <option>2009</option>
-                                 <option>2008</option>
-                                 <option>2007</option>
-                                 <option>2006</option>
-                                 <option>2005</option>
-                                 <option>2004</option>
-                                 <option>2003</option>
-                                 <option>2002</option>
-                                 <option>2001</option>
-                                 <option>2000</option>
-                                 <option>1999</option>
-                                 <option>1997</option>
-                                 <option>1996</option>
-                                 <option>1995</option>
                              </select>
                          </div>
                      </div>
