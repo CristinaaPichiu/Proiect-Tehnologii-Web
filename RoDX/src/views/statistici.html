@@ -54,7 +54,7 @@
         </div>
     </header>
 
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" class="small-chart"></canvas>
 
     <script>
         // Funcția pentru a citi datele din fișier
@@ -69,28 +69,33 @@
         // Funcția pentru a crea graficul cu datele primite
         function createChart(data) {
             const labels = [];
-            const values = [];
-
-            // Parcurgem datele și extragem etichetele și valorile
+            const datasets = [];
+        
+            // Parcurgem datele și extragem etichetele și valorile pentru fiecare set de date
             for (const item of data) {
                 const [label, value] = item[0].split(";");
                 labels.push(label);
-                values.push(parseInt(value));
+                const [label1, value1] = item[1].split(";");
+                labels.push(label1);
+                
+                const dataset = {
+                    label: label,label1,
+                    data: [parseInt(value),parseInt(value1)],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                };
+                
+                datasets.push(dataset);
             }
-
+        
             // Creăm un nou grafic folosind Chart.js
             const ctx = document.getElementById('myChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: labels,
-                    datasets: [{
-                        label: 'Condamnări pe sexe',
-                        data: values,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
+                    datasets: datasets
                 },
                 options: {
                     responsive: true,
@@ -102,6 +107,7 @@
                 }
             });
         }
+        
 
         // Apelarea funcției pentru a citi datele din fișier și a crea graficul
         readDataFromFile("../../CondamnariSexe.json")
