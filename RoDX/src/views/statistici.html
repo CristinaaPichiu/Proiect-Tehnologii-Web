@@ -58,209 +58,133 @@
     </header>
 
 
-    <div class="wrapper">
-        <div class="filters">
-            
-            <div class="filters-title">Filters</div>
-            <form id="filters_form" class="form-group" action="/" method="POST">
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Date</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <input type="date" id="minDate" name="minDate" min="1950-01-01" max="2000-01-01" step="1"
-                            value="1950-01-01">
-                    </div>
-                    <div class="form-item">
-                        <input type="date" id="maxDate" name="maxDate" min="1950-01-01" max="2000-01-01" step="1"
-                            value="2000-01-01">
-                    </div>
-                </div>
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">City</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <input name="cityName" id="cityName" type="text" placeholder="City..">
-                    </div>
-                </div>
-
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Location</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <input id="location" name="location" type="text" placeholder="Location..">
-                    </div>
-                </div>
-
-                
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Drug type</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel" id="attackTypeIdIn">
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_1" value="1">
-                            <label for="attack_type_1">drug1</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_2" value="2">
-                            <label for="attack_type_2">drug2</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_3" value="3">
-                            <label for="attack_type_3">drug3</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_4" value="4">
-                            <label for="attack_type_4">drug4</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_5" value="5">
-                            <label for="attack_type_5">drug5</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_6" value="6">
-                            <label for="attack_type_6">drug6</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_7" value="7">
-                            <label for="attack_type_7">drug7</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_8" value="8">
-                            <label for="attack_type_8">drug8</label>
-                        </div>
-                    </div>
-
-                    <div class="form-item">
-                        <div class="form-item-checkbox">
-                            <input type="checkbox" id="attack_type_9" value="9">
-                            <label for="attack_type_9">drug9</label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Suicide</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <select class="select-options" value="1" name="suicide" id="sucideSelect">
-                            <option selected value="">Not specified</option>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Diagram type</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <select class="select-options" name="chartType" id="chartType">
-                            <option value="bar">Bar</option>
-                            <option value="line">Line</option>
-                            <option value="radar">Radar</option>
-                            <option value="polarArea">Polar Area</option>
-                            <option value="doughnut">Doughnut</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Labels in chart</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div class="form-item">
-                        <select class="select-options" name="labelType" id="labelType">
-                            <option value="iyear">Year</option>
-                            <option value="imonth">Month</option>
-                            <option value="iday">Day</option>
-                            <option value="region_txt">Region</option>
-                            <option selected value="country_txt">Country</option>
-                            <option value="city">City</option>
-                            <option value="targtype1_txt">Target</option>
-                            <option value="attacktype1_txt">Attack type</option>
-                            <option value="weaptype1_txt">Weapon type</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="accordion">
-                    <div class="filter-selected checked"></div>
-                    <div class="accordion-text">Download</div>
-                    <div class="empty-div"></div>
-                </div>
-                <div class="panel">
-                    <div style="height: 80px;" class="form-item">
-                        <div class="download_methods">
-                            <a id="CSV" class="download_button">
-                                <div class="download_button_text">Download CSV</div>
-                                <i class="fas fa-download"></i>
-                            </a>
-                            <a class="download_button">
-                                <div id = "WEBP" class="download_button_text">Download WebP</div>
-                                <i class="fas fa-download"></i>
-                            </a>
-                            <a class="download_button">
-                                <div id="SVG" class="download_button_text">Download SVG </div>
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <button class="btn submit_filters" id="submit_filters">Submit</button>
-            <button class="btn reset_filters" id="reset_filters">Reset</button>
-        </div>
-
-
-            </form>
-            </div>
-            </div>
+    <div class="container">
+        <div class="diagrams">
+         <div class="choiceType">
+             <h2>♦ Choose options for statistics ♦</h2>
+             <div class="dropdownBlock">
+                 <div class="title">
+                     <h1>
+                         Choose a type of actors
+                     </h1>
+                 </div>
+                 <div class="selector">
+                     <select id="actors" onChange="showSelectValue()">
+                             <option class="nominees">Nominees</option>
+                             <option class="winnwers">Winners</option>
+                     </select>
+                 </div>
+             </div>
+             <div class="selectYear">
+                 <div class="allYears">
+                     <label for="recommed-1">
+                         <input type="radio" id="recommed-1" name="recommed1" onclick="selectAllYears()" value="All Years">
+                             All Years
+                     </label>
+                 </div>
+                 <div class="typeOfDiagram">
+                 <label class="type">
+                     <input type="radio" id="year1" name="recommed" value="line">
+                     Line
+                     
+                 </label>
+                 <label class="type">
+                     <input type="radio" id="year2" name="recommed" value="pie">
+                     Pie
+                     
+                 </label>
+                 <label class="type">
+                     <input type="radio" id="year3" name="recommed" value="column">
+                     Column
+                     
+                 </label>
+                 </div>
+             </div>
+             <div class="selectCategories">
+                 <div class="col1">
+                     <div class="allCategory">
+                         <label for="recommed2">
+                             <input type="radio" id="recommed2" name="recommed1" onclick="selectAllCategories()" value="All Categories">
+                             All Categories
+                             
+                         </label>
+                     </div>
+                     <div class="typeOfDiagram">
+                         <label class="type1">
+                             <input type="radio" id="cat1" name="recommed" value="bar">
+                             Bar
+                             
+                         </label>
+                         <label class="type1">
+                             <input type="radio" id="cat2" name="recommed" value="pie">
+                             Pie
+                             
+                         </label>
+                         <label class="type1">
+                             <input type="radio" id="cat3" name="recommed" value="column">
+                             Column
+                             
+                         </label>
+                     </div>
+                 </div>
+                 <div class="col2">
+                     <div class="dropdownBlock2">
+                         <div class="title2">
+                             <h1>
+                                 Choose a year
+                             </h1>
+                         </div>
+                         <div class="selector">
+                             <select id="yearChoose" onChange="showYearValue()">
+                                 <option>2020</option>
+                                 <option>2019</option>
+                                 <option>2018</option>
+                                 <option>2017</option>
+                                 <option>2016</option>
+                                 <option>2015</option>
+                                 <option>2014</option>
+                                 <option>2013</option>
+                                 <option>2012</option>
+                                 <option>2011</option>
+                                 <option>2010</option>
+                                 <option>2009</option>
+                                 <option>2008</option>
+                                 <option>2007</option>
+                                 <option>2006</option>
+                                 <option>2005</option>
+                                 <option>2004</option>
+                                 <option>2003</option>
+                                 <option>2002</option>
+                                 <option>2001</option>
+                                 <option>2000</option>
+                                 <option>1999</option>
+                                 <option>1997</option>
+                                 <option>1996</option>
+                                 <option>1995</option>
+                             </select>
+                         </div>
+                     </div>
+                 </div>
+ 
+             </div>
+             <div class="submit">
+                 <button class="button" onclick="generateGraph()">Generate</button>
+             </div>
+ 
+         </div>
+         <div class="showDiagram" id="showDiagram">
+             <canvas id="chartContainer"></canvas>
+ 
+             <div class="dowloands" id="dowloands">
+                 <div class="list">
+                     <a href="#" id="d1" onclick="downloadCSV()"><span >Download</span><span>CSV</span></a>
+                     <a href="#" id="d2" onclick="downloadWEBP()"><span >Download</span><span>WEBP</span></a>
+                     <a href="#" id="d3" onclick="downloadSVG()"><span >Download</span><span>SVG</span></a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     </div>
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
