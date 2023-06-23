@@ -47,12 +47,12 @@ class EndpointUrgenteDrogDiagnostic{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$boala.';';
+                                $concat=$concat.$boala.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $boala . ';';
+                                $concat = $concat . $boala . ' ';
 
                             }
                             if ($index == 1) {
@@ -104,12 +104,12 @@ class EndpointUrgenteDrogDiagnostic{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$boala.';';
+                                $concat=$concat.$boala.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $boala . ';';
+                                $concat = $concat . $boala . ' ';
 
                             }
                             if ($index == 1) {

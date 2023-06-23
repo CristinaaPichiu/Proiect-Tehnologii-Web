@@ -47,12 +47,12 @@ class EndpointUrgenteDrogVarsta{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$varsta.';';
+                                $concat=$concat.$varsta.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $varsta. ';';
+                                $concat = $concat . $varsta. ' ';
 
                             }
                             if ($index == 1) {
@@ -104,12 +104,12 @@ class EndpointUrgenteDrogVarsta{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$varsta.';';
+                                $concat=$concat.$varsta.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $varsta . ';';
+                                $concat = $concat . $varsta . ' ';
 
                             }
                             if ($index == 1) {

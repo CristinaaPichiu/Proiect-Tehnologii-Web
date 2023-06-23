@@ -47,12 +47,12 @@ class EndpointUrgenteDrogSex{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$sex.';';
+                                $concat=$concat.$sex.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $sex. ';';
+                                $concat = $concat . $sex. ' ';
 
                             }
                             if ($index == 1) {
@@ -104,12 +104,12 @@ class EndpointUrgenteDrogSex{
                             $concat = "";
                             $index = 0;
                             if($index==0){
-                                $concat=$concat.$sex.';';
+                                $concat=$concat.$sex.' ';
                             }
                         }
                         else {
                             if ($index == 0) {
-                                $concat = $concat . $sex . ';';
+                                $concat = $concat . $sex . ' ';
 
                             }
                             if ($index == 1) {
