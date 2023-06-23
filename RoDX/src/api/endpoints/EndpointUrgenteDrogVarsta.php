@@ -11,7 +11,7 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 
 class EndpointUrgenteDrogVarsta{
-
+    public $numberOfUrgenteByYear;
     public $numberOfUrgenteByYearAndVarsta;
     public $numberOfUrgenteByCanabis;
     public $numberOfUrgenteByStimulanti;
@@ -311,7 +311,63 @@ class EndpointUrgenteDrogVarsta{
         }
     }
 
-    
+    public function getNumberOfUrgenteByYear($an1): void
+    {
+        $database = new DataBaseConn();
+        $db = $database->getConnection();
+        $items = new UrgenteDrogVarstaController($db);
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json");
+        } else {
+            $items->an = $an1;
+            $stmt = $items->getAllByYear();
+            $itemCount = $stmt->rowCount();
+            $varste = array();
+            if($itemCount > 0){
+                $index = 0;
+                $concat ="";
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    extract($row);
+                    foreach($row as $varsta){
+                        if($index == 3){
+                            $varste[] = $concat;
+                            $concat = "";
+                            $index = 0;
+                            if($index==0){
+                                $concat=$concat.$varsta.' ';
+                            }
+                        }
+                        else {
+                            if ($index == 0) {
+                                $concat = $concat . $varsta. ' ';
+
+                            }
+                            if ($index == 1) {
+
+                                $concat = $concat . $varsta.';';
+
+                            }
+                            if($index == 2){
+                                $concat = $concat . $varsta;
+                            }
+                        }
+                        $index++;
+                    }
+                }
+                $varste[] = $concat;
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json","w");
+                fwrite($handle, json_encode(array($varste)) . "\n \n \n ");
+                fclose($handle);
+                echo json_encode(array($varste)) . "\n \n \n ";
+            }
+            else {
+                http_response_code(404);
+                echo json_encode(
+                    array("message" => "No record found.")
+                );
+            }
+        }
+    }
 
 
   

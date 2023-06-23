@@ -57,6 +57,10 @@ $endpoint4->numberOfUrgenteByNSP="UrgenteNspBoala";
 $endpoint4->getNumberOfUrgenteByNSP();
 $endpoint4->numberOfUrgenteByStimulanti="UrgenteStimulantiBoala";
 $endpoint4->getNumberOfUrgenteByStimulanti();
+$endpoint4->numberOfUrgenteByYear="UrgenteByYearBoala";
+$endpoint4->getNumberOfUrgenteByYear(2019);
+$endpoint4->getNumberOfUrgenteByYear(2020);
+$endpoint4->getNumberOfUrgenteByYear(2021);
 
 /*$endpoint5 = new EndpointUrgenteDrogConsum();
 $endpoint5->numberOfUrgenteByYearAndConsum ='UrgenteByYearConsum';
@@ -81,6 +85,10 @@ $endpoint6->numberOfUrgenteByNSP="UrgenteNspSex";
 $endpoint6->getNumberOfUrgenteByNSP();
 $endpoint6->numberOfUrgenteByStimulanti="UrgenteStimulantiSex";
 $endpoint6->getNumberOfUrgenteByStimulanti();
+$endpoint6->numberOfUrgenteByYear="UrgenteByYearSex";
+$endpoint6->getNumberOfUrgenteByYear(2019);
+$endpoint6->getNumberOfUrgenteByYear(2020);
+$endpoint6->getNumberOfUrgenteByYear(2021);
 
 $endpoint7 = new EndpointUrgenteDrogVarsta();
 $endpoint7->numberOfUrgenteByYearAndVarsta ='UrgenteByYearVarsta';
@@ -93,6 +101,10 @@ $endpoint7->numberOfUrgenteByNSP="UrgenteNspVarsta";
 $endpoint7->getNumberOfUrgenteByNSP();
 $endpoint7->numberOfUrgenteByStimulanti="UrgenteStimulantiVarsta";
 $endpoint7->getNumberOfUrgenteByStimulanti();
+$endpoint7->numberOfUrgenteByYear="UrgenteByYearVarsta";
+$endpoint7->getNumberOfUrgenteByYear(2019);
+$endpoint7->getNumberOfUrgenteByYear(2020);
+$endpoint7->getNumberOfUrgenteByYear(2021);
 
 $endpoint8 = new EndpointCapturi;
 $endpoint8->capturiGrame = 'CapturiGrameDrog';

@@ -11,7 +11,8 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 
 class EndpointUrgenteDrogDiagnostic{
-
+    
+    public $numberOfUrgenteByYear;
     public $numberOfUrgenteByYearAndBoala;
     public $numberOfUrgenteByCanabis;
     public $numberOfUrgenteByStimulanti;
@@ -311,7 +312,60 @@ class EndpointUrgenteDrogDiagnostic{
         }
     }
 
-    
+    public function getNumberOfUrgenteByYear($an1): void
+    {
+        $database = new DataBaseConn();
+        $db = $database->getConnection();
+        $items = new UrgenteDrogDiagnosticController($db);
+        if(file_exists("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json")){
+            include("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json");
+        } else {
+            $items->an = $an1;
+            $stmt = $items->getAllByYear();
+            $itemCount = $stmt->rowCount();
+            $boli = array();
+            if($itemCount > 0){
+                $index = 0;
+                $concat ="";
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    extract($row);
+                    foreach($row as $boala){
+                        if($index == 2){
+                            $boli[] = $concat;
+                            $concat = "";
+                            $index = 0;
+                            if($index==0){
+                                $concat=$concat.$boala.';';
+                            }
+                        }
+                        else {
+                            if ($index == 0) {
+                                $concat = $concat . $boala . ';';
+
+                            }
+                            if ($index == 1) {
+
+                                $concat = $concat . $boala;
+
+                            }
+                        }
+                        $index++;
+                    }
+                }
+                $boli[] = $concat;
+                $handle = fopen("src/static/cache/".$this->numberOfUrgenteByYear."_".$an1.".json","w");
+                fwrite($handle, json_encode(array($boli)) . "\n \n \n ");
+                fclose($handle);
+                echo json_encode(array($boli)) . "\n \n \n ";
+            }
+            else {
+                http_response_code(404);
+                echo json_encode(
+                    array("message" => "No record found.")
+                );
+            }
+        }
+    }
 
 
   

@@ -86,7 +86,7 @@ class UrgenteDrogDiagnosticController {
 
     public function getAllByYear()
     {
-        $sqlQuery = sprintf("SELECT * FROM %s WHERE an=?", $this->db_table);
+        $sqlQuery = sprintf("SELECT s.cauza, (s.canabis + s.stimulanti + s.opiacee + s.nsp) FROM %s s WHERE an=?", $this->db_table);
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->bindParam(1, $this->an);
         $stmt->execute();
