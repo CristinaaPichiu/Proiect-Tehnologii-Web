@@ -46,7 +46,7 @@ class UrgenteDrogSexController {
 
     public function getByYearAndSexUrgenteDrog()
     {
-        $sqlQuery = sprintf("SELECT s.an, s.sex, (s.canabis + s.stimulanti + s.opiacee + s.nsp) as droguri FROM %s s order by an", $this->db_table);
+        $sqlQuery = sprintf("SELECT s.sex, (s.canabis + s.stimulanti + s.opiacee + s.nsp) as droguri,s.an FROM %s s order by an", $this->db_table);
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute();
         return $stmt;
@@ -54,7 +54,7 @@ class UrgenteDrogSexController {
 
     public function getSexCanabisByYear()
     {
-        $sqlQuery = sprintf("SELECT an, sex, canabis FROM %s s order by an", $this->db_table);
+        $sqlQuery = sprintf("SELECT sex, canabis, an FROM %s s order by an", $this->db_table);
         $stmt = $this->conn->prepare($sqlQuery);
         $stmt->execute();
         return $stmt;

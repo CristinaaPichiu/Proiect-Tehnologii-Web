@@ -56,21 +56,21 @@
 
     
     <div class="button-container">
-        <button class="form-item-button" id="attack_type_1" value="1" onclick="generateGraph('../static/cache/CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_2" value="2" onclick="generateGraph2('../static/cache/NumarBeneficiariCampanie.json')">campanii</button>
-        <button class="form-item-button" id="attack_type_3" value="3" onclick="generateGraph('../static/cache/NrPersoaneInfractiuni.json')">infractiuni</button>
-        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_5" value="5" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_6" value="6" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_7" value="7" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_8" value="8" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_9" value="9" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
-        <button class="form-item-button" id="attack_type_10" value="10" onclick="generateGraph('../../CondamnariSexe.json')">condamnari</button>
+        <button class="form-item-button" id="attack_type_1" value="1" onclick="generateGraph('../static/cache/CondamnariSexe.json')">Condamnari</button>
+        <button class="form-item-button" id="attack_type_2" value="2" onclick="generateGraph2('../static/cache/NumarBeneficiariCampanie.json')">Campanii</button>
+        <button class="form-item-button" id="attack_type_3" value="3" onclick="generateGraph('../static/cache/NrPersoaneInfractiuni.json')">Infractiuni</button>
+        <button class="form-item-button" id="attack_type_5" value="5" onclick="generateGraph2('../static/cache/CapturiGrameDrog.json')">CapturiGrame</button>
+        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph2('../static/cache/UrgenteByYearBoala.json')">UrgentaBoala</button>
+        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph('../static/cache/UrgenteByYearSex.json')">UrgentaSex</button>
+        <button class="form-item-button" id="attack_type_7" value="7" onclick="generateGraph2('../static/cache/UrgenteByYearVarsta.json')">UrgentaVarsta</button>
+        <button class="form-item-button" id="attack_type_8" value="8" onclick="generateGraph2('../static/cache/UrgenteCanabisBoala.json')">CanabisBoala</button>
+        <button class="form-item-button" id="attack_type_6" value="6" onclick="generateGraph2('../static/cache/UrgenteCanabisSex.json')">CanabisSexe</button>
+        <button class="form-item-button" id="attack_type_9" value="9" onclick="generateGraph2('../static/cache/UrgenteCanabisVarsta.json')">CanabisVarsta</button>
       </div>
               
      
 
-                <canvas id="myChart" class="chart-container "></canvas>
+    <canvas id="myChart" class="chart-container "></canvas>
 
     <script>
         // Funcția pentru a citi datele din fișier
@@ -84,26 +84,29 @@
 
         // Funcția pentru a crea graficul cu datele primite
         function createChart(data) {
-            const labels = [];
-            const datasets = [];
-        
-            // Parcurgem datele și extragem etichetele și valorile pentru fiecare set de date
-            for (const item of data) {
-                const [label, value] = item[0].split(";");
-                labels.push(label);
-                const [label1, value1] = item[1].split(";");
-                labels.push(label1);
+            const datasets = data.map(item => {
+                const labels = item.map(entry => {
+                    const [label, value] = entry.split(";");
+                    return label;
+                });
+                const values = item.map(entry => {
+                    const [label, value] = entry.split(";");
+                    return parseInt(value);
+                });
                 
-                const dataset = {
-                    label: label,label1,
-                    data: [parseInt(value),parseInt(value1)],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                return {
+                    label: labels.join(', '),
+                    data: values,
+                    backgroundColor: ['rgba(200, 15, 192, 0.4)', 'rgba(172, 200, 210, 0.6)'],
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
+                    borderWidth: 2
                 };
-                
-                datasets.push(dataset);
-            }
+            });
+            
+            const labels = data[0].map(entry => {
+                const [label, value] = entry.split(";");
+                return label;
+            });
         
             // Creăm un nou grafic folosind Chart.js
             const ctx = document.getElementById('myChart').getContext('2d');
@@ -126,28 +129,30 @@
 
 
         function createChart2(data) {
-            const labels = [];
-            const datasets = [];
+            const datasets = data.map(item => {
+                const labels = item.map(entry => {
+                    const [label, value] = entry.split(";");
+                    return label;
+                });
+                const values = item.map(entry => {
+                    const [label, value] = entry.split(";");
+                    return parseInt(value);
+                });
         
-            // Parcurgem datele și extragem etichetele și valorile pentru fiecare set de date
-            for (const item of data) {
-                const [label, value] = item[0].split(";");
-                labels.push(label);
-                const [label1, value1] = item[1].split(";");
-                labels.push(label1);
-                const [label2, value2] = item[2].split(";");
-                labels.push(label2);
-                
-                const dataset = {
-                    label: label,label1,label2,
-                    data: [parseInt(value),parseInt(value1), parseInt(value2)],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                return {
+                    label: labels.join(', '),
+                    data: values,
+                    backgroundColor: 'rgba(100, 15, 132, 0.7)',
+                    borderColor: 'rgba(172, 200, 210, 1)',
                     borderWidth: 1
                 };
-                
-                datasets.push(dataset);
-            }
+            });
+        
+            // Extragem etichetele din primul element din `data`
+            const labels = data[0].map(entry => {
+                const [label, value] = entry.split(";");
+                return label;
+            });
         
             // Creăm un nou grafic folosind Chart.js
             const ctx = document.getElementById('myChart').getContext('2d');
@@ -167,6 +172,7 @@
                 }
             });
         }
+        
         
         // Funcția pentru a genera graficul pe baza fișierului selectat
         function generateGraph(file) {
