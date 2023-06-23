@@ -16,7 +16,7 @@ if(isset($_POST['logout'])){
     $stmt->bindParam(':loggedIn2', $loggedIn2);
     $stmt->execute();
    
-    header("Location: ../views/index.html");
+    header("Location: ../views/register.html");
     exit();
 }
 
