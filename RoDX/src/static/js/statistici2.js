@@ -43,3 +43,11 @@ function readDataFromFile(file) {
     });
 }
   
+
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Previne comportamentul implicit de trimitere a formularului
+  const file = document.getElementById('myFile').files[0]; // Preiați fișierul selectat
+  generateGraph(file); // Apelați funcția generateGraph cu fișierul selectat
+});

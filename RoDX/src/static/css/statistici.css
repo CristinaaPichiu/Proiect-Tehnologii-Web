@@ -11,7 +11,7 @@
   .button-download {
     display: inline-flex; /* Afișează butoanele pe orizontală */
     align-items: flex-start;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 500px;
 }
 
@@ -43,4 +43,27 @@
     margin: 300px;
     margin-left: 900px;
     margin-top: -800px;
+}
+
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 10px; /* Adăugăm un spațiu între form și butoanele din button-container */
+  margin-left: 450px;
+  
+}
+.select-options {
+  background-color: #1CAC78; /* Setăm culoarea de fundal verde */
+  width: 250px; /* Alegeți lățimea dorită */
+  height: 40px; /* Alegeți înălțimea dorită */
+  font-size: 16px; /* Dimensiunea textului */
+  color: rgb(254, 247, 247); /* Culoarea textului */
+  border: aquamarine; /* Eliminăm bordura */
+}
+
+.custom-select option {
+  background-color: white; /* Setăm culoarea de fundal a opțiunilor */
+  color: black; /* Setăm culoarea textului opțiunilor */
 }
