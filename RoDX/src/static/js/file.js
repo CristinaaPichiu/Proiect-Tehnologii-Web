@@ -26,3 +26,36 @@ menuToggle.onclick=function(){
     closeBtn.classList.remove('active');
     searchBtn.classList.remove('active');
 }
+
+var modal = document.getElementById("modal");
+
+var openModal = document.getElementById("open-modal");
+var closeModal = document.getElementsByClassName("close")[0];
+
+openModal.onclick = function() {
+  modal.style.display = "block";
+}
+
+closeModal.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+

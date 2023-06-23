@@ -11,6 +11,60 @@
   margin: auto;
 }
 
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content img {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+}
+
+.modal-text {
+  text-align: left;
+}
+
+
+
+.close {
+  color: #560202;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(251, 250, 250);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
 /* Hide the images by default */
 .mySlides {
   display: none;

@@ -1,4 +1,3 @@
-
 const usernameTag = "name";
 const passwordTag = "password";
 const passwordTag1 = "firstPassword";
@@ -22,27 +21,47 @@ signInButton.addEventListener('click', () => {
   // console.log("a2");
 });
 
+function openModal() {
+  var modal = document.getElementById("modal-content");
+  modal.classList.add("show");
+}
+
+
 /**
  * method used to register an user
  * @param {*} registerCredentials 
  */
 function register(registerCredentials) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', urlRegister, async);
-  xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  xhr.onreadystatechange = function () {
-    if (xhr.status === 201 && xhr.readyState == 4) {
-      //console.log("User Registered!");                                        //todo
-      window.location.href = "../../views/index.html";
+  $.ajax({
+    url: urlRegister,
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({
+      username: registerCredentials[usernameTag],
+      user_password: registerCredentials[passwordTag],
+      user_email: registerCredentials[emailTag]
+    }),
+    success: function (data, textStatus, xhr) {
+      if (xhr.status === 200) {
+        // Utilizatorul este autentificat cu succes
+        $('#username-modal').text(registerCredentials[usernameTag]);
+        $('#email-modal').text(registerCredentials[emailTag]);
+        $('#password-modal').text(registerCredentials[passwordTag]);
+        openModal();
+      } else {
+        // Autentificarea a eșuat
+        cleanHtml();
+        $('#login-failed').html('Autentificare eșuată!');
+      }
+    },
+    error: function (xhr, textStatus, errorThrown) {
+      // Autentificarea a eșuat
+      cleanHtml();
+      $('#login-failed').html('Autentificare eșuată!');
     }
-    else if(xhr.readyState == 4){
-      cleanHtml()
-      document.getElementById("register-failed").innerHTML = "Incearca alt Username!";
-    }
-  };
-  var body = JSON.stringify({ username: registerCredentials[usernameTag], user_password: registerCredentials[passwordTag1], user_email: registerCredentials[emailTag] });
-  xhr.send(body);
+  });
 }
+
 
 function cleanHtml() {
   document.getElementById("username-constraints").innerHTML = "";
@@ -50,3 +69,4 @@ function cleanHtml() {
   document.getElementById("email-constraints").innerHTML = "";
   document.getElementById("register-failed").innerHTML ="";
 }
+
