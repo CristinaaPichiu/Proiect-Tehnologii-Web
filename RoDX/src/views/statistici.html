@@ -175,24 +175,41 @@
         
         
         // Funcția pentru a genera graficul pe baza fișierului selectat
-        function generateGraph(file) {
-            readDataFromFile(file)
-                .then((data) => {
-                    createChart(data);
-                })
-                .catch((error) => {
-                    console.error("A apărut o eroare la citirea fișierului:", error);
-                });
-        }
-        function generateGraph2(file) {
-            readDataFromFile(file)
-                .then((data) => {
-                    createChart2(data);
-                })
-                .catch((error) => {
-                    console.error("A apărut o eroare la citirea fișierului:", error);
-                });
-        }
+        // Funcția pentru a genera graficul pe baza fișierului selectat
+function generateGraph(file) {
+  const chartElement = document.getElementById('myChart');
+  if (chartElement) {
+    // Verificăm dacă există un grafic generat anterior
+    // Ștergem graficul anterior
+    Chart.getChart(chartElement)?.destroy();
+  }
+
+  readDataFromFile(file)
+    .then((data) => {
+      createChart(data);
+    })
+    .catch((error) => {
+      console.error("A apărut o eroare la citirea fișierului:", error);
+    });
+}
+
+function generateGraph2(file) {
+  const chartElement = document.getElementById('myChart');
+  if (chartElement) {
+    // Verificăm dacă există un grafic generat anterior
+    // Ștergem graficul anterior
+    Chart.getChart(chartElement)?.destroy();
+  }
+
+  readDataFromFile(file)
+    .then((data) => {
+      createChart2(data);
+    })
+    .catch((error) => {
+      console.error("A apărut o eroare la citirea fișierului:", error);
+    });
+}
+
 
 
 
