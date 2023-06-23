@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
@@ -47,12 +48,7 @@
             <input type="text" placeholder="Search here...">
         </div>
 
-        <button onclick="window.location.href='../views/register.html'">
-            <svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path>
-            </svg>
-        </button>
-
+        <button onclick="performLogout()"><svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path></svg></button>
         <div class="contact-button">
             <a href="help.html">
                 <img src="../static/images/phone.png" alt="Contact Us">
@@ -384,5 +380,6 @@ Este important să înțelegem că urgențele legate de droguri pot avea conseci
 
 
     </script>
+    <script type="text/javascript" src="../static/js/logout.js"></script>
 </body>
 </html>

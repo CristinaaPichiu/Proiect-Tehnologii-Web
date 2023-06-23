@@ -9,10 +9,13 @@ function performLogout() {
         // Acțiuni specifice după efectuarea logout-ului și actualizarea bazei de date
         console.log(response); // Exemplu: Afișează răspunsul primit de la fișierul PHP
         // Redirecționează către pagina de index sau altă acțiune specifică
+        window.location.href = 'register.html';
       },
       error: function() {
         console.log("Nu merge");
       }
     });
   }
+  
+
   
