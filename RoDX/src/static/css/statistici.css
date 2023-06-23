@@ -6,20 +6,41 @@
     margin-top: 200px;
     margin-left: 100px;
   }
+
+
+  .button-download {
+    display: inline-flex; /* Afișează butoanele pe orizontală */
+    align-items: flex-start;
+    margin-top: 150px;
+    margin-left: 500px;
+}
+
+.button-download .form {
+    background-color: #1CAC78;
+    width: 200px; /* Lățimea dorită a butonului */
+    height: 60px; /* Înălțimea dorită a butonului */
+    padding: 10px; /* Spatiul interior al butonului */
+    font-size: 16px; /* Dimensiunea textului butonului */
+    margin-right: 10px; /* Spațiul între butoane */
+}
+  
+
   
   .form-item-button {
     background-color: #1CAC78;
     width: 15%;
     margin: 5px 0;
+    
+  }
+  body {
+    background-color: white;
   }
   
-
-
 
 .chart-container  {
     width: 20px;
     height: 5px;
     margin: 300px;
-    margin-left: 800px;
-    margin-top: -500px;
+    margin-left: 900px;
+    margin-top: -800px;
 }
