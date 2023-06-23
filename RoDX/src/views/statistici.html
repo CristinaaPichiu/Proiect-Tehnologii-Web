@@ -16,8 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-
 </head>
 
 <body>
@@ -150,7 +148,15 @@
                 return {
                     label: labels.join(', '),
                     data: values,
-                    backgroundColor: ['rgba(200, 15, 192, 0.4)', 'rgba(172, 200, 210, 0.6)'],
+                    backgroundColor: [
+                      'rgba(223, 158, 189, 1)',  // Roz pastel
+                      'rgba(198, 195, 218, 1)',  // Lavandă pastel
+                      'rgba(152, 217, 219, 1)',  // Albastru pastel
+                      'rgba(216, 216, 162, 1)',  // Verde pastel
+                      'rgba(251, 206, 177, 1)',  // Portocaliu pastel
+                      'rgba(214, 182, 199, 1)',  // Mov pastel
+                      'rgba(170, 204, 165, 1)'   // Verde deschis pastel
+                    ],
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 2
                 };
@@ -179,53 +185,6 @@
                 }
             });
         }
-
-
-        function createChart2(data) {
-            const datasets = data.map(item => {
-                const labels = item.map(entry => {
-                    const [label, value] = entry.split(";");
-                    return label;
-                });
-                const values = item.map(entry => {
-                    const [label, value] = entry.split(";");
-                    return parseInt(value);
-                });
-        
-                return {
-                    label: labels.join(', '),
-                    data: values,
-                    backgroundColor: 'rgba(100, 15, 132, 0.7)',
-                    borderColor: 'rgba(172, 200, 210, 1)',
-                    borderWidth: 1
-                };
-            });
-        
-            // Extragem etichetele din primul element din `data`
-            const labels = data[0].map(entry => {
-                const [label, value] = entry.split(";");
-                return label;
-            });
-        
-            // Creăm un nou grafic folosind Chart.js
-            const ctx = document.getElementById('myChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-        
         
         // Funcția pentru a genera graficul pe baza fișierului selectat
         // Funcția pentru a genera graficul pe baza fișierului selectat
@@ -256,7 +215,15 @@ function generateGraph(file) {
         return {
           label: labels.join(', '),
           data: values,
-          backgroundColor: ['rgba(200, 15, 192, 0.4)', 'rgba(172, 200, 210, 0.6)'],
+          backgroundColor: [
+            'rgba(223, 158, 189, 1)',  // Roz pastel
+            'rgba(198, 195, 218, 1)',  // Lavandă pastel
+            'rgba(152, 217, 219, 1)',  // Albastru pastel
+            'rgba(216, 216, 162, 1)',  // Verde pastel
+            'rgba(251, 206, 177, 1)',  // Portocaliu pastel
+            'rgba(214, 182, 199, 1)',  // Mov pastel
+            'rgba(170, 204, 165, 1)'   // Verde deschis pastel
+          ],
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 2
         };
@@ -298,6 +265,35 @@ function downloadChartAsPNG() {
   link.download = 'chart.png';
   link.click();
 }
+function downloadChartAsSVG() {
+  const canvas = document.getElementById("myChart");
+
+  // Creează un element SVG și configurează dimensiunile acestuia
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink"); // Adaugă declarația de spațiu de nume xlink
+  svg.setAttribute("width", canvas.width);
+  svg.setAttribute("height", canvas.height);
+
+  // Creează un element imagine SVG și setează sursa la conținutul canvas-ului
+  const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  image.setAttribute("xlink:href", canvas.toDataURL()); // Utilizează prefixul xlink pentru atributul href
+  image.setAttribute("width", canvas.width);
+  image.setAttribute("height", canvas.height);
+
+  // Adaugă imaginea în elementul SVG
+  svg.appendChild(image);
+
+  // Creează un element de descărcare a fișierului SVG
+  const link = document.createElement("a");
+  link.href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg.outerHTML);
+  link.download = "chart.svg";
+
+  // Simulează un clic pe link pentru a descărca fișierul SVG
+  link.click();
+}
+
+
 
 
 
