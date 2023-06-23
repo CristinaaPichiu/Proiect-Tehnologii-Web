@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 200px;
+    margin-top: 170px;
     margin-left: 100px;
   }
 
@@ -23,9 +23,9 @@
     font-size: 16px; /* Dimensiunea textului butonului */
     margin-right: 10px; /* Spațiul între butoane */
 }
-  
 
   
+
   .form-item-button {
     background-color: #1CAC78;
     width: 15%;
@@ -42,7 +42,7 @@
     height: 5px;
     margin: 300px;
     margin-left: 900px;
-    margin-top: -800px;
+    margin-top: -1300px;
 }
 
 
@@ -67,3 +67,23 @@
   background-color: white; /* Setăm culoarea de fundal a opțiunilor */
   color: black; /* Setăm culoarea textului opțiunilor */
 }
+h1{
+  margin-left:10px;
+}
+#textContainer {
+  max-height: 500px; /* Setează înălțimea maximă a containerului */
+  overflow-y: auto; /* Adaugă o bară de derulare verticală când textul depășește înălțimea maximă */
+  margin-top: 150px; /* Adaugă un spațiu de 150px în partea de sus a containerului */
+  padding: 20px; /* Adaugă un padding de 20px în interiorul containerului pentru a crea un spațiu între text și margine */
+  background-color: #f5f5f5; /* Setează o culoare de fundal pentru container */
+  border: 1px solid #ccc; /* Adaugă o bordură de 1px solidă */
+  font-size: 16px; /* Setează dimensiunea fontului pentru text */
+  line-height: 1.5; /* Setează înălțimea liniei pentru a crea un spațiu între rânduri */
+}
+
+
+#myChart {
+  position: absolute;
+  
+}
+

@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1700e3d335.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -56,9 +62,11 @@
 
     
     
-    
     <div class="button-container">
+        <h1>Alege Diagrama:</h1>
+
         <div class="panel">
+
             <div class="form-item">
                 <select class="select-options" name="chartType" id="chartType">
                     <option value="bar">Bar</option>
@@ -70,26 +78,33 @@
             </div>
         </div>
        
-        <button class="form-item-button" id="attack_type_1" value="1" onclick="generateGraph('../static/cache/CondamnariSexe.json')">Condamnari</button>
-        <button class="form-item-button" id="attack_type_2" value="2" onclick="generateGraph('../static/cache/NumarBeneficiariCampanie.json')">Campanii</button>
-        <button class="form-item-button" id="attack_type_3" value="3" onclick="generateGraph('../static/cache/NrPersoaneInfractiuni.json')">Infractiuni</button>
-        <button class="form-item-button" id="attack_type_5" value="5" onclick="generateGraph('../static/cache/CapturiGrameDrog.json')">CapturiGrame</button>
-        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph('../static/cache/UrgenteByYearBoala.json')">UrgentaBoala</button>
-        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph('../static/cache/UrgenteByYearSex.json')">UrgentaSex</button>
-        <button class="form-item-button" id="attack_type_7" value="7" onclick="generateGraph('../static/cache/UrgenteByYearVarsta.json')">UrgentaVarsta</button>
-        <button class="form-item-button" id="attack_type_8" value="8" onclick="generateGraph('../static/cache/UrgenteCanabisBoala.json')">CanabisBoala</button>
-        <button class="form-item-button" id="attack_type_6" value="6" onclick="generateGraph('../static/cache/UrgenteCanabisSex.json')">CanabisSexe</button>
-        <button class="form-item-button" id="attack_type_9" value="9" onclick="generateGraph('../static/cache/UrgenteCanabisVarsta.json')">CanabisVarsta</button>
+        <button class="form-item-button" id="attack_type_1" value="1" onclick="generateGraph('../static/cache/CondamnariSexe.json');updateText('attack_type_1')">Condamnari</button>
+        <button class="form-item-button" id="attack_type_2" value="2" onclick="generateGraph('../static/cache/NumarBeneficiariCampanie.json');updateText('attack_type_2')">Campanii</button>
+        <button class="form-item-button" id="attack_type_3" value="3" onclick="generateGraph('../static/cache/NrPersoaneInfractiuni.json');updateText('attack_type_3')">Infractiuni</button>
+        <button class="form-item-button" id="attack_type_4" value="4" onclick="generateGraph('../static/cache/CapturiGrameDrog.json');updateText('attack_type_4')">CapturiGrame</button>
+        <button class="form-item-button" id="attack_type_5" value="5" onclick="generateGraph('../static/cache/UrgenteByYearBoala.json');updateText('attack_type_5')">UrgentaBoala</button>
+        <button class="form-item-button" id="attack_type_6" value="6" onclick="generateGraph('../static/cache/UrgenteByYearSex.json');;updateText('attack_type_6')">UrgentaSex</button>
+        <button class="form-item-button" id="attack_type_7" value="7" onclick="generateGraph('../static/cache/UrgenteByYearVarsta.json');updateText('attack_type_7')">UrgentaVarsta</button>
+        <button class="form-item-button" id="attack_type_8" value="8" onclick="generateGraph('../static/cache/UrgenteCanabisBoala.json');updateText('attack_type_8')">CanabisBoala</button>
+        <button class="form-item-button" id="attack_type_9" value="9" onclick="generateGraph('../static/cache/UrgenteCanabisSex.json');updateText('attack_type_9')">CanabisSexe</button>
+        <button class="form-item-button" id="attack_type_10" value="10" onclick="generateGraph('../static/cache/UrgenteCanabisVarsta.json');updateText('attack_type_10')">CanabisVarsta</button>
      
 
 
       </div>
               
       <div class="button-download">
-        <button class="form" id="attack_type_10" value="10" onclick="downloadChartAsPNG()">Download PNG</button>
-        <button class="form" id="attack_type_11" value="11" onclick="downloadChartAsSVG()">Download SVG</button>
+        <button class="form" id="attack_type_11" value="11" onclick="downloadChartAsPNG()">Download PNG</button>
+        <button class="form" id="attack_type_12" value="12" onclick="downloadChartAsSVG()">Download SVG</button>
+
 
       </div>
+      <div id="textContainer"></div>
+
+
+  
+      
+
 
      
      
@@ -268,6 +283,99 @@ function downloadChartAsPNG() {
   link.href = dataURL;
   link.download = 'chart.png';
   link.click();
+}
+
+
+
+
+// functie pt text 
+function updateText(buttonId) {
+  let text = '';
+
+  // Setăm textul în funcție de ID-ul butonului apăsat
+  if (buttonId === 'attack_type_1') {
+    text = `În România, condamnările legate de infracțiunile de droguri au devenit tot mai frecvente în ultimele decenii. Aceste condamnări sunt rezultatul politicii stricte a statului în ceea ce privește drogurile și eforturile sale de a combate traficul și consumul de substanțe interzise.
+    
+    În conformitate cu legislația românească, posesia, producția, distribuția și traficul de droguri sunt infracțiuni pedepsite cu închisoarea. Condamnările variază în funcție de cantitatea de droguri, tipul substanțelor și circumstanțele individuale ale cazului.
+        
+    Din păcate, condamnările pentru infracțiunile de droguri sunt adesea severe și au un impact semnificativ asupra vieții persoanelor implicate. În unele cazuri, chiar și posesia unei cantități mici de droguri poate duce la sentințe lungi de închisoare.
+        
+    În cadrul sistemului judiciar românesc, există dezbateri cu privire la eficacitatea politicii antidrog și impactul său asupra societății. Susținătorii unei abordări mai blânde susțin că ar trebui să se pună accentul pe tratamentul și reintegrarea persoanelor dependente de droguri în societate, în timp ce criticii politicii curente consideră că aceasta este prea punitivă și că ar trebui să se acorde o mai mare atenție factorilor sociali și de sănătate în abordarea problemei drogurilor.
+        
+    Condamnările legate de droguri pot avea consecințe dureroase pentru persoanele implicate, afectându-le viața personală, profesională și socială. Ele pot crea stigme și dificultăți în găsirea unui loc de muncă sau reintegrarea în societate după eliberare.
+        
+    În ciuda politicii stricte și a condamnărilor dure, problema consumului și traficului de droguri nu a fost în întregime eradicată în România. Există încă numeroase provocări în combaterea acestor infracțiuni, iar autoritățile continuă să se străduiască să găsească soluții eficiente și să abordeze această problemă complexă.
+        
+    Este important să înțelegem că condamnările legate de droguri afectează atât persoanele implicate direct, cât și comunitatea în ansamblu. O abordare echilibrată și bazată pe dovezi științifice poate contribui la reducerea consumului și traficului de droguri, precum și la oferirea de sprijin și asistență celor afectați de dependență.
+        
+    În final, este esențial ca societatea să reflecte și să dezbată în continuare politica antidrog și modalitățile de abordare a infracțiunilor de droguri în România, în căutarea unor soluții mai eficiente și mai umane pentru gestionarea acestei provocări complexe.`;;
+  } 
+  
+  else if (buttonId === 'attack_type_2') {
+    text = `Campaniile de combatere a drogurilor reprezintă eforturile colective depuse de guverne, organizații non-guvernamentale și comunități pentru a reduce utilizarea și răspândirea substanțelor interzise și pentru a conștientiza publicul cu privire la pericolele asociate consumului de droguri. Aceste campanii se concentrează pe prevenirea consumului de droguri, tratarea dependenței, reducerea ofertei și combaterea traficului de droguri.
+
+Una dintre principalele abordări ale campaniilor împotriva drogurilor este educația și informarea. Prin intermediul programelor de educație, se încearcă să se ofere publicului informații precise despre efectele nocive ale drogurilor asupra sănătății fizice și mentale, consecințele legale și sociale ale consumului de droguri și modalitățile de evitare a acestora. De asemenea, se încearcă să se dezvolte abilitățile de luare a deciziilor și rezistența la presiunile grupului în rândul tinerilor, astfel încât aceștia să poată face alegeri informate și să își protejeze sănătatea.
+
+O altă componentă importantă a campaniilor de combatere a drogurilor este tratamentul și reabilitarea persoanelor dependente. Se promovează accesul la servicii de sănătate mentală și dependență, inclusiv programe de dezintoxicare, consiliere individuală și de grup și terapii de înlocuire a dependenței. Scopul este de a ajuta persoanele afectate să depășească dependența și să-și reconstruiască viețile fără droguri.
+
+Pe lângă educație și tratament, campaniile de combatere a drogurilor vizează și reducerea ofertei de droguri și combaterea traficului ilegal. Prin aplicarea unor măsuri de aplicare a legii mai stricte, se urmărește destructurarea rețelelor de traficanți și confiscarea substanțelor interzise. Colaborarea internațională este, de asemenea, esențială pentru a contracara traficul de droguri la nivel global.
+
+În plus, campaniile de combatere a drogurilor încurajează implicarea comunităților în prevenirea consumului de droguri. Acestea încurajează colaborarea între școli, familii, lideri comunitari și alte organizații pentru a crea un mediu sănătos și sigur în comunități. Prin organizarea de evenimente, seminarii și campanii de conștientizare, se încurajează dialogul și sprijinul reciproc în lupta împotriva drogurilor.
+
+În concluzie, campaniile de combatere a drogurilor reprezintă un efort complex și cuprinzător de a preveni consumul de droguri, trata dependența, reduce oferta și combate traficul ilegal. Prin educație, tratament, măsuri de aplicare a legii și implicarea comunităților, se urmărește crearea unei societăți mai sănătoase și mai sigure, în care oamenii să poată trăi liberi de dependența de droguri și de consecințele acestuia.`;
+  } 
+  
+  
+  else if (buttonId === 'attack_type_3') {
+    text = `Infracțiunile asociate drogurilor reprezintă o preocupare majoră pentru societate și pentru autoritățile responsabile cu aplicarea legii. Consumul, posesia, producția și traficul de droguri ilegale constituie infracțiuni care au consecințe semnificative asupra indivizilor și comunităților.
+
+Una dintre principalele probleme asociate infracțiunilor legate de droguri este legătura strânsă între consumul de droguri și comiterea altor infracțiuni. Persoanele dependente de droguri pot să comită infracțiuni pentru a obține bani sau substanțe interzise, iar traficanții de droguri sunt implicați în rețele criminale și violență. Acest lucru creează un ciclu perpetuu de infracțiuni și instabilitate în comunități.
+
+Autoritățile aplică măsuri de aplicare a legii pentru a combate infracțiunile asociate drogurilor. Aceste măsuri includ monitorizarea și investigarea activităților suspecte, raiduri și percheziții, confiscarea drogurilor și arestarea infractorilor. Colaborarea între agențiile de aplicare a legii, atât la nivel național, cât și internațional, este esențială pentru a lupta eficient împotriva traficului de droguri și a grupărilor infracționale implicate.
+
+Pe lângă aplicarea legii, există și eforturi de prevenire a infracțiunilor asociate drogurilor. Acestea includ campanii de conștientizare și educație în comunități, cu scopul de a preveni consumul de droguri și de a oferi informații cu privire la riscurile și consecințele asociate acestuia. De asemenea, se promovează implicarea comunității în proiecte și inițiative care să ofere alternative sănătoase și perspective de viitor pentru tineri, astfel încât aceștia să se îndepărteze de influența drogurilor și a criminalității.
+
+În ceea ce privește infracțiunile asociate drogurilor, este important să existe un echilibru între abordări punitive și abordări de tratare și reintegrare socială. Tratarea dependenței de droguri ca o problemă de sănătate și acordarea de asistență medicală și psihologică celor afectați poate contribui la reducerea recidivei și la reintegrarea lor în societate.
+
+În concluzie, infracțiunile asociate drogurilor reprezintă o problemă complexă și răspândită, cu impact asupra individului, comunității și societății în ansamblu. Prin măsuri de aplicare a legii, prevenirea și tratarea dependenței, precum și implicarea comunității, se urmărește combaterea acestor infracțiuni și crearea unui mediu mai sigur și mai sănătos pentru toți cetățenii.`;
+  }
+
+
+else if(buttonId=='attack_type_4'){
+text=`Capturile de droguri reprezintă o parte importantă a luptei împotriva traficului și consumului de droguri. Autoritățile responsabile cu aplicarea legii desfășoară operațiuni de monitorizare, investigații și raiduri pentru a identifica și captura substanțele ilegale și pe cei implicați în traficul lor.
+
+Capturile de droguri pot varia în termeni de cantitate, tipuri de substanțe și metode de ascundere. Autoritățile depun eforturi considerabile pentru a identifica metodele sofisticate utilizate de traficanți pentru a încerca să păcălească controalele și pentru a transporta drogurile într-un mod clandestin și discreționar. Acestea pot include ascunderea drogurilor în compartimente speciale ale vehiculelor, utilizarea ambalajelor duble sau ambalajelor false, precum și ascunderea drogurilor în colete poștale sau în bagaje.
+
+Atunci când au loc capturi de droguri, acestea sunt adesea însoțite de arestarea persoanelor implicate. Traficanții de droguri, furnizorii și distribuitorii sunt aduși în fața justiției pentru a fi judecați și pedepsiți în conformitate cu legile țării respective. Aceste capturi și arestări au un impact semnificativ asupra rețelelor de trafic de droguri, perturbându-le activitățile și reducând disponibilitatea de droguri pe piață.
+
+Capturile de droguri nu se limitează doar la nivel local sau național, ci implică adesea colaborarea între agențiile de aplicare a legii la nivel internațional. Traficul de droguri este o problemă transfrontalieră, iar schimbul de informații și cooperarea între țări sunt esențiale pentru a identifica și captura traficanții la nivel global.
+
+Astfel, capturile de droguri reprezintă un element cheie în combaterea traficului de droguri și în reducerea disponibilității de substanțe ilegale pe piață. Aceste acțiuni contribuie la protejarea sănătății și siguranței publice, la descurajarea traficanților și la crearea unui climat de descurajare a consumului de droguri.`
+
+}
+
+else if(buttonId=='attack_type_5'|| buttonId=='attack_type_6'||buttonID=='attack_type_7'){
+text=`Urgențele legate de droguri pot fi diverse și pot implica situații critice legate de consumul de droguri, traficul de droguri sau consecințele negative ale acestora asupra sănătății și siguranței publice. Iată câteva exemple de urgențe legate de droguri:
+
+Supradoză: O supradoză de droguri reprezintă o urgență medicală care poate fi fatală. Persoanele care consumă droguri în cantități mari sau care folosesc substanțe de o calitate necunoscută sau contaminată pot prezenta simptome grave și necesită asistență medicală imediată.
+
+Reacții adverse severe: Consumul de droguri poate provoca reacții adverse severe, inclusiv tulburări psihotice, atacuri de panică, comportament agresiv sau auto-vătămător, halucinații și comportament irațional. Aceste situații pot necesita intervenția imediată a serviciilor de urgență și asistență medicală specializată.
+
+Răspunsuri violente sau crime: Unele urgențe legate de droguri pot implica violență sau comportament criminal. Acestea pot include conflicte între traficanți de droguri, agresiuni asupra utilizatorilor de droguri sau infracțiuni comise sub influența substanțelor psihoactive. Poliția și alte forțe de ordine intervin pentru a gestiona astfel de situații și a asigura siguranța publică.
+
+Dependență și retragere: Persoanele dependente de droguri pot experimenta urgențe legate de retragerea bruscă a substanței sau dificultăți în accesarea tratamentului necesar. Aceste situații pot necesita intervenția serviciilor sociale, asistență medicală și servicii de reabilitare pentru a oferi sprijin și tratament adecvat.
+
+Este important să înțelegem că urgențele legate de droguri pot avea consecințe grave asupra individului și societății în ansamblu. Promovarea prevenției, educarea publicului cu privire la riscurile consumului de droguri și disponibilitatea serviciilor de tratament și recuperare sunt aspecte esențiale în abordarea acestor urgențe și reducerea impactului negativ al drogurilor asupra comunității.`}
+
+
+
+  const textContainer = document.getElementById('textContainer');
+
+  // Stergem textul anterior complet
+  textContainer.innerText = '';
+
+  // Adăugăm noul text
+  textContainer.innerText = text;
 }
 
 
