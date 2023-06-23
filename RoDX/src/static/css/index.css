@@ -24,21 +24,27 @@
   overflow: auto;
   
 }
+#open-modal {
+  margin-left: 900px; /* Modifică valoarea pentru a muta butonul mai la dreapta */
+}
 
 .modal-content {
   background-color: white;
   margin: 15% auto;
   padding: 20px;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 700px;
+ 
   text-align: center;
 }
 
 .modal-content img {
   display: block;
   margin: 0 auto 20px;
-  width: 100px;
+  width: 400px; /* Modifică valoarea pentru a face imaginea mai mare */
+  height:400px;
 }
+
 
 .modal-text {
   text-align: left;

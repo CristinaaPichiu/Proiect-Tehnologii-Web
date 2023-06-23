@@ -1,89 +1,112 @@
 
 .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 170px;
-    margin-left: 100px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 120px;
+  margin-left: 100px;
+}
 
 
-  .button-download {
-    display: inline-flex; /* Afișează butoanele pe orizontală */
-    align-items: flex-start;
-    margin-top: 100px;
-    margin-left: 500px;
+.button-download {
+  display: inline-flex; /* Afișează butoanele pe orizontală */
+  align-items: flex-start;
+  margin-top: 100px;
+  margin-left: 500px;
 }
 
 .button-download .form {
-    background-color: #1CAC78;
-    width: 200px; /* Lățimea dorită a butonului */
-    height: 60px; /* Înălțimea dorită a butonului */
-    padding: 10px; /* Spatiul interior al butonului */
-    font-size: 16px; /* Dimensiunea textului butonului */
-    margin-right: 10px; /* Spațiul între butoane */
+  background-color: #1CAC78;
+  width: 200px; /* Lățimea dorită a butonului */
+  height: 60px; /* Înălțimea dorită a butonului */
+  padding: 10px; /* Spatiul interior al butonului */
+  font-size: 16px; /* Dimensiunea textului butonului */
+  margin-right: 10px; /* Spațiul între butoane */
 }
 
-  
 
-  .form-item-button {
-    background-color: #1CAC78;
-    width: 15%;
-    margin: 5px 0;
-    
-  }
-  body {
-    background-color: white;
-  }
+
+.form-item-button {
+  background-color: #1CAC78;
+  width: 15%;
+  margin: 5px 0;
   
+}
+body {
+  background-color: white;
+}
+
 
 .chart-container  {
-    width: 20px;
-    height: 5px;
-    margin: 300px;
-    margin-left: 900px;
-    margin-top: -1300px;
+  width: 20px;
+  height: 5px;
+  margin: 300px;
+  margin-left: 900px;
+  margin-top: -1300px;
 }
 
 
 .panel {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 10px; /* Adăugăm un spațiu între form și butoanele din button-container */
-  margin-left: 450px;
-  
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-right: 10px; /* Adăugăm un spațiu între form și butoanele din button-container */
+margin-left: 450px;
+
 }
 .select-options {
-  background-color: #1CAC78; /* Setăm culoarea de fundal verde */
-  width: 250px; /* Alegeți lățimea dorită */
-  height: 40px; /* Alegeți înălțimea dorită */
-  font-size: 16px; /* Dimensiunea textului */
-  color: rgb(254, 247, 247); /* Culoarea textului */
-  border: aquamarine; /* Eliminăm bordura */
+background-color: #1CAC78; /* Setăm culoarea de fundal verde */
+width: 250px; /* Alegeți lățimea dorită */
+height: 40px; /* Alegeți înălțimea dorită */
+font-size: 16px; /* Dimensiunea textului */
+color: rgb(254, 247, 247); /* Culoarea textului */
+border: aquamarine; /* Eliminăm bordura */
 }
 
 .custom-select option {
-  background-color: white; /* Setăm culoarea de fundal a opțiunilor */
-  color: black; /* Setăm culoarea textului opțiunilor */
+background-color: white; /* Setăm culoarea de fundal a opțiunilor */
+color: black; /* Setăm culoarea textului opțiunilor */
 }
 h1{
-  margin-left:10px;
+margin-left:10px;
 }
 #textContainer {
-  max-height: 500px; /* Setează înălțimea maximă a containerului */
-  overflow-y: auto; /* Adaugă o bară de derulare verticală când textul depășește înălțimea maximă */
-  margin-top: 150px; /* Adaugă un spațiu de 150px în partea de sus a containerului */
-  padding: 20px; /* Adaugă un padding de 20px în interiorul containerului pentru a crea un spațiu între text și margine */
-  background-color: #f5f5f5; /* Setează o culoare de fundal pentru container */
-  border: 1px solid #ccc; /* Adaugă o bordură de 1px solidă */
-  font-size: 16px; /* Setează dimensiunea fontului pentru text */
-  line-height: 1.5; /* Setează înălțimea liniei pentru a crea un spațiu între rânduri */
+max-height: 500px; /* Setează înălțimea maximă a containerului */
+overflow-y: auto; /* Adaugă o bară de derulare verticală când textul depășește înălțimea maximă */
+margin-top: 150px; /* Adaugă un spațiu de 150px în partea de sus a containerului */
+padding: 20px; /* Adaugă un padding de 20px în interiorul containerului pentru a crea un spațiu între text și margine */
+background-color: #f5f5f5; /* Setează o culoare de fundal pentru container */
+border: 1px solid #ccc; /* Adaugă o bordură de 1px solidă */
+font-size: 16px; /* Setează dimensiunea fontului pentru text */
+line-height: 1.5; /* Setează înălțimea liniei pentru a crea un spațiu între rânduri */
 }
 
 
 #myChart {
-  position: absolute;
-  
+position: absolute;
+
+}
+
+.panel2 {
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-right: 10px; /* Adăugăm un spațiu între form și butoanele din button-container */
+margin-left: 450px;
+
+}
+.select-options2 {
+background-color: #1CAC78; /* Setăm culoarea de fundal verde */
+width: 250px; /* Alegeți lățimea dorită */
+height: 40px; /* Alegeți înălțimea dorită */
+font-size: 16px; /* Dimensiunea textului */
+color: rgb(254, 247, 247); /* Culoarea textului */
+border: aquamarine; /* Eliminăm bordura */
+}
+
+.custom-select option {
+background-color: white; /* Setăm culoarea de fundal a opțiunilor */
+color: black; /* Setăm culoarea textului opțiunilor */
 }
 
