@@ -12,13 +12,17 @@ if(isset($_POST['register'])){
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $loggedIn = 0;
 
-        $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+        $query = "INSERT INTO users2 (name, email, password, logged_in) VALUES ('$name', '$email', '$password','$loggedIn')";
         $result = $dbConnection->prepare($query);
         $result->execute();
         if ($result) {
-            header("Location: ../views/index.html");
-            exit(); 
+            echo "<script>
+                    alert('Autentificarea a fost efectuată cu succes!');
+                    window.location.href = '../views/register.html';
+                  </script>";
+            exit();
         } else {
             echo "Error: Unable to insert data into the database\n";
         }
