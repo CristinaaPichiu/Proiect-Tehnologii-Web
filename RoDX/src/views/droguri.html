@@ -38,6 +38,24 @@
         <input type="text" placeholder="Search here...">
       </div>
 
+      <button href="#modal" id="open-modal" onclick="loadUserInfo()">
+        <img src="../static/images/icon.png" alt="Imagine antet"width="50" height="50">
+    </button>
+    
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="../static/images/icon.png" alt="Imagine modal">
+          <div class="modal-text">
+            <p>Nume utilizator: <span id="username-modal"></span></p>
+<p>Email: <span id="email-modal"></span></p>
+<p>Parolă: <span id="password-modal"></span></p>
+
+           
+          </div>
+        </div>
+      </div>
+
       <button onclick="performLogout()"><svg width="183px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="rgba(28,172,120,1)"></path></svg></button>
 
 
@@ -154,5 +172,6 @@
 
     <script type="text/javascript" src="../static/js/file.js"></script>
     <script type="text/javascript" src="../static/js/logout.js"></script>
+    <script type="text/javascript" src="../static/js/getUserInfo.js"></script>
     </body>
 </html>
