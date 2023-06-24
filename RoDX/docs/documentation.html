@@ -3,7 +3,7 @@
  
 <head>
     <meta charset="UTF-8">
-    <meta content="text/html">
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="documentation.css">
@@ -57,38 +57,40 @@
  
         <p>Similar cu alte site-uri de vizualizare de date, Romanian Drug Explorer (RoDX) facilitează vizualizarea diverselor informații despre consumul de droguri din România.</p>
  
-        <h3> 2.2 Funcțiile Produsului </h3>
- 
-        <p>
+        <h3>2.2 Funcțiile Produsului</h3>
+
         <ul>
-            <li>Generare de statistici cu diverse forme de vizualizare</li>
-            <ol>
-                <li>Bar chart</li>
-                <li>Line chart</li>
-                <li>Pie Chart</li>
-             
-            </ol>
-            <li>Generarea de date statistice privind aspecte legate de infracțiunile și confiscările efectuate, plus urgențele medicale și campaniile de prevenire a consumului de stupefiante</li>
-            <ol>
-                <li>În funcție de numărul de nominalizați pe toți anii.</li>
-                <li>În funcție de numărul de câștigători pe toți anii.</li>
-                <li>În funcție de numărul de nominalizați pe categorie într-un an specific.</li>
-                <li>În funcție de numărul de câștigători pe categorie într-un an specific.</li>
-               
-            </ol>
-            <li>Exportarea informațiilor</li>
-            <ol>
-                <li>Format CSV</li>
-                <li>Format WebP</li>
-                <li>Format SVG</li>
-            </ol>
-             <li>Autentificarea sau logarea</li>
-            <li> Accesarea datelor generale despre consumul de droguri din România. </li>
-            <li> Exportarea informațiilor de pe site în diverse formate.
+            <li>Generare de statistici cu diverse forme de vizualizare
+                <ol>
+                    <li>Bar chart</li>
+                    <li>Line chart</li>
+                    <li>Pie Chart</li>
+                    <li>Polar Area</li>
+                    <li>Doughnut</li>
+                    <li>Radar</li>
+                </ol>
             </li>
+            <li>Generarea de date statistice privind aspecte legate de infracțiunile și confiscările efectuate, plus urgențele medicale și campaniile de prevenire a consumului de stupefiante
+                <ol>
+                    <li>În funcție de condamări.</li>
+                    <li>În funcție de infracțiuni.</li>
+                    <li>În funcție de activități/campanii/proiecte.</li>
+                    <li>În funcție de urgențe.</li>
+                    <li>În funcție de droguri.</li>
+                    <li>În funcție de capturi.</li>
+                </ol>
+            </li>
+            <li>Exportarea informațiilor
+                <ol>
+                    <li>Format PNG</li>
+                    <li>Format SVG</li>
+                </ol>
+            </li>
+            <li>Autentificarea sau logarea</li>
+            <li>Accesarea datelor generale despre consumul de droguri din România.</li>
+            <li>Exportarea informațiilor de pe site în diverse formate.</li>
         </ul>
-        </p>
- 
+        
      
         <h3> 2.4 Mediul de utilizare </h3>
  
@@ -102,16 +104,10 @@
             <li>Utilizarea de HTML5, CSS3, JavaScript</li>
             <li>Utilizarea unei baze de date ca sursă de date</li>
             <li>Generarea de diverse statisitici și viziualizări</li>
-            <li>Posibilitatea de a exporta datele în diverse formate: CSV, WebP si SVG</li>
+            <li>Posibilitatea de a exporta datele în diverse formate: SVG și PNG</li>
         </ul>
  
-        <h3> 2.6 Documentație</h3>
- 
-        <ul>
-            <li>
-                <a href="https://docs.google.com/document/d/1xTKEshhjBSZ0ebpaW432bwkDGELkKHlodPOr6dC193Q/edit">Documentație
-                    API</a></li>
-        </ul>
+       
  
        
     </section>
@@ -125,16 +121,13 @@
             fi afișate într-un mod interactiv pe chart-uri.</p>
        
  
-        </p>
         <h3> 3.2 Interfață Software </h3>
  
         <ul>
             <li>Necesită un browser instalat pe calculator.</li>
-            <li>Comunicarea cu baza de date pentru afișarea informațiilor cerute de utilizatori obișnuiți sau
-                administratori.
+            <li>Comunicarea cu baza de date pentru afișarea informațiilor cerute de utilizatori.
             </li>
  
-            <li>Utilizarea librăriei Potrace pentru convertirea în formatul SVG.</li>
             <li>Utilizarea librăriei Font Awesome pentru diverse icon-uri.</li>
             <li>Utilizarea librăriei Chartjs pentru afișarea diverselor informații legate de consumul de droguri din România.
             </li>
@@ -162,6 +155,9 @@
             <li>Bar chart</li>
             <li>Line chart</li>
             <li>Pie Chart</li>
+            <li>Polar Area</li>
+            <li>Doughnut</li>
+            <li>Radar</li>
          
         </ol>
  
@@ -173,10 +169,12 @@
             filtrelor.</p>
         <p>Generarea de date statistice pot fi grupate:</p>
         <ol>
-            <li>În funcție de numărul de nominalizați pe toți anii.</li>
-                <li>În funcție de numărul de câștigători pe toți anii.</li>
-                <li>În funcție de numărul de nominalizați pe categorie într-un an specific.</li>
-                <li>În funcție de numărul de câștigători pe categorie într-un an specific.</li>
+            <li>În funcție de condamări.</li>
+                <li>În funcție de infracțiuni.</li>
+                <li>În funcție de activități/campanii/proiecte.</li>
+                <li>În funcție de urgențe.</li>
+                <li>În funcție de droguri.</li>
+                <li>În funcție de capturi.</li>
         </ol>
         <h4> 4.1.3 Cerințe funcționale </h4>
  
@@ -188,8 +186,7 @@
         <h4> 4.2.1 Descriere </h4>
         <p> Datele pot fi exportate în multiple formate:</p>
         <ol>
-            <li>Format CSV</li>
-            <li>Format WebP</li>
+            <li>Format PNG</li>
             <li>Format SVG</li>
         </ol>
  
