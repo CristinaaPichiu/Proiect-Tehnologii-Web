@@ -6,4 +6,4 @@ Componență echipă:
 * Pichiu Cristina-Cătălina
 
 Documentație: https://github.com/CristinaaPichiu/Proiect-Tehnologii-Web/blob/main/RoDX/docs/documentation.html     
-Video: https://www.youtube.com/watch?fbclid=IwAR0UibMwLu_UNVlO4e1q7wbmzmbo71tb26riZmMO0_EZCt5hwjWYifVlsBg&v=fLZH6w6zXwg&feature=youtu.be
+Video: https://youtu.be/laoDeYdDwX8](https://www.youtube.com/watch?v=laoDeYdDwX8)https://www.youtube.com/watch?v=laoDeYdDwX8
