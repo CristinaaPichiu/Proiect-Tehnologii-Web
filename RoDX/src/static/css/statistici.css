@@ -3,16 +3,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 120px;
-  margin-left: 100px;
+  margin-top: 7vw;
+  margin-left: 5vw;
 }
-
 
 .button-download {
   display: inline-flex; /* Afișează butoanele pe orizontală */
   align-items: flex-start;
-  margin-top: 100px;
-  margin-left: 500px;
+  margin-top: 60px;
+  margin-left: 350px;
 }
 
 .button-download .form {
@@ -22,6 +21,30 @@
   padding: 10px; /* Spatiul interior al butonului */
   font-size: 16px; /* Dimensiunea textului butonului */
   margin-right: 10px; /* Spațiul între butoane */
+}
+
+@media screen and (max-width: 768px) {
+  /* Stiluri pentru ecrane cu lățime maximă de 768px */
+  .button-container {
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .button-download {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .button-download .form {
+    width: 80%;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 .modal {
   display: none;
@@ -75,12 +98,19 @@ body {
 
 
 .chart-container  {
-  width: 20px;
-  height: 5px;
+  display: inline-flex;
+  position: fixed;
+  width: 50px;
+  height: 25px;
   margin: 300px;
-  margin-left: 900px;
-  margin-top: -1300px;
+  margin-left: 810px;
+  margin-top: -1260px;
 }
+.chart-container.same-size {
+  width: 200px;
+  height: 100px;
+}
+
 
 
 .panel {

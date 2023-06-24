@@ -74,6 +74,7 @@
                 <select class="select-options" name="chartType" id="chartType">
                     <option value="bar">Bar</option>
                     <option value="line">Line</option>
+                    <option value="pie">Pie</option>
                     <option value="radar">Radar</option>
                     <option value="polarArea">Polar Area</option>
                     <option value="doughnut">Doughnut</option>
@@ -113,6 +114,8 @@
       <div class="button-download">
         <button class="form" id="attack_type_11" value="11" onclick="downloadChartAsPNG()">Download PNG</button>
         <button class="form" id="attack_type_12" value="12" onclick="downloadChartAsSVG()">Download SVG</button>
+        <button class="form" id="attack_type_13" value="13" onclick="downloadPageWithCSS()">Download WEB</button>
+
 
 
       </div>
@@ -120,12 +123,7 @@
 
 
   
-      
-
-
-     
-     
-
+  
     <canvas id="myChart" class="chart-container "></canvas>
 
     <script>
@@ -298,7 +296,25 @@ function downloadChartAsSVG() {
   link.click();
 }
 
+function downloadPageWithCSS() {
+  const html = document.documentElement.outerHTML; // Obțineți conținutul HTML al paginii
 
+  // Obțineți toate stilurile CSS definite în pagină
+  const styles = Array.from(document.querySelectorAll("style, link[rel='stylesheet']"))
+    .map((style) => style.outerHTML)
+    .join("\n");
+
+  // Construiți conținutul HTML final, care include stilurile CSS
+  const finalHtml = `<html>${styles}<body>${html}</body></html>`;
+
+  // Creează un element de descărcare a fișierului HTML
+  const link = document.createElement("a");
+  link.href = "data:text/html;charset=utf-8," + encodeURIComponent(finalHtml);
+  link.download = "page.html";
+
+  // Simulează un clic pe link pentru a descărca fișierul HTML
+  link.click();
+}
 
 
 
