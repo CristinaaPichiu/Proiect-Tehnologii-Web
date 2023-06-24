@@ -2,6 +2,38 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	
+  }
+  #open-modal {
+	margin-left: 300px; /* Modifică valoarea pentru a muta butonul mai la dreapta */
+  }
+  
+  .modal-content {
+	background-color: white;
+	margin: 15% auto;
+	padding: 20px;
+	border-radius: 8px;
+	max-width: 700px;
+   
+	text-align: center;
+  }
+  
+  .modal-content img {
+  
+	display: block;
+	margin: 0 auto 20px;
+	width: 400px; /* Modifică valoarea pentru a face imaginea mai mare */
+	height:400px;
+  }
 
 html {
   box-sizing: border-box;

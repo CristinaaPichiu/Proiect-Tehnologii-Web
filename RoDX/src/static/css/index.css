@@ -25,7 +25,7 @@
   
 }
 #open-modal {
-  margin-left: 900px; /* Modifică valoarea pentru a muta butonul mai la dreapta */
+  margin-left: 300px; 
 }
 
 .modal-content {
@@ -49,11 +49,8 @@
 .modal-text {
   text-align: left;
 }
-
-
-
 .close {
-  color: #560202;
+  color: #a51c1c;
   float: right;
   font-size: 28px;
   font-weight: bold;

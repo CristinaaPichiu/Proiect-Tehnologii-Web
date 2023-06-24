@@ -51,3 +51,21 @@ form.addEventListener('submit', function(event) {
   const file = document.getElementById('myFile').files[0]; // Preiați fișierul selectat
   generateGraph(file); // Apelați funcția generateGraph cu fișierul selectat
 });
+function openModalF() {
+    
+  var modal = document.getElementById('modal');
+  var openModal = document.getElementById("open-modal");
+  var closeModal = document.getElementsByClassName("close")[0];
+  openModal.onclick = function() {
+    modal.style.display = "block";
+  }
+  closeModal.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
